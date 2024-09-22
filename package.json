@@ -1,0 +1,24 @@
+{
+    "name": "worldbuilding",
+    "description": "WIP",
+    "version": "0.0.0",
+    "author": "Rafael Bordoni",
+    "license": "MIT",
+    "main": "index.html",
+    "type": "module",
+    "scripts": {
+        "dev": "source ./.env && python -m http.server $PORT",
+        "lint": "npx eslint .",
+        "format": "npx prettier . --write",
+        "build:tailwindcss": "npx tailwindcss -i ./src/main.css -o ./build/output.css",
+        "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.11.0",
+        "eslint": "^9.11.0",
+        "eslint-config-prettier": "^9.1.0",
+        "globals": "^15.9.0",
+        "prettier": "^3.3.3",
+        "tailwindcss": "^3.4.12"
+    }
+}
