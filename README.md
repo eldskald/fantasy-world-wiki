@@ -2,6 +2,8 @@
 
 WIP
 
+App available at https://eldskald.github.io/ttrpg-wip
+
 ## Dependencies
 
 Just `node`. It's useful to have `python` too if you want to serve the file on localhost but the project is so simple that just opening [index.html] on a web browser should work.
