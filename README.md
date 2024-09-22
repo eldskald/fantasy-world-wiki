@@ -30,7 +30,7 @@ This sets an environment variable for the port it will be served after you run:
 npm run dev
 ```
 
-As said previously, you need `python` to run this command and technically you don't need it, you can just open [index.html] directly after having built, don't even need the `.env` file but it's easier with that command.
+As said previously, you need `python` to run this command and technically you don't need it, you can just open [index.html](index.html) directly after having built, don't even need the `.env` file but it's easier with that command.
 
 By default, it runs on port 3000 but you're free to change it on your `.env` file.
 
@@ -40,3 +40,11 @@ Other than that, you have the following scripts for linting and formatting:
 npm run lint
 npm run format
 ```
+
+## Deploy
+
+It is done automatically through Github Actions and Github Pages. If you're forking this repo to make your own TTRPG world wiki, you need to enable Github Pages and give actions read and write permissions. It will be available at https://your-username.github.io/your-repo and will be updated automatically every time you push to `main`.
+
+## Credits
+
+Everything by [Rafael Bordoni](https://github.com/eldskald). Also thanks to [tailwindcss](https://tailwindcss.com/) for their cool framework.
