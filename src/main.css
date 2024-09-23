@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    h1 {
+        @apply text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+    }
+
+    h2 {
+        @apply text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+    }
+
+    h3 {
+        @apply text-4xl font-display text-primary-light dark:text-primary-dark;
+    }
+
+    h4 {
+        @apply text-3xl font-display text-primary-light dark:text-primary-dark;
+    }
+
+    h5 {
+        @apply text-2xl font-sans text-fg-light font-bold dark:text-fg-dark;
+    }
+
+    h6 {
+        @apply text-2xl font-sans text-fg-light dark:text-fg-dark;
+    }
+
+    p {
+        @apply font-serif text-lg text-fg-light dark:text-fg-dark;
+    }
+
+    a {
+        @apply text-primary-light dark:text-primary-dark underline hover:brightness-125;
+    }
+
+    button {
+        @apply px-3 h-8 text-lg text-fg-light dark:text-fg-dark font-sans font-semibold rounded border border-primary-light bg-primary-light dark:border-primary-dark dark:bg-primary-dark duration-100 ease-in-out hover:brightness-125 active:scale-90 disabled:opacity-50;
+
+        @layer components {
+            .outlined {
+                @apply text-primary-light dark:text-primary-dark bg-transparent;
+            }
+
+            .sm {
+                @apply h-6 text-sm px-2;
+            }
+
+            .lg {
+                @apply h-10 text-2xl px-4;
+            }
+        }
+    }
+}
