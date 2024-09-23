@@ -10,7 +10,7 @@
         "dev": "source ./.env && python -m http.server $PORT",
         "lint": "npx eslint .",
         "format": "npx prettier . --write",
-        "build:tailwindcss": "npx tailwindcss -i ./src/main.css -o ./build/output.css",
+        "build:tailwindcss": "npx tailwindcss -i ./src/main.css -o ./build/output.css --minify",
         "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss"
     },
     "devDependencies": {
