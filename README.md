@@ -10,6 +10,8 @@ Just `node`. It's useful to have `python` too if you want to serve the file on l
 
 ## Developing
 
+### Getting started
+
 Run the following script to build:
 
 ```sh
@@ -40,6 +42,20 @@ Other than that, you have the following scripts for linting and formatting:
 npm run lint
 npm run format
 ```
+
+### Changing the assets
+
+#### Changing the theme
+
+The [assets/theme/index.js](assets/theme/index.js) file sets the themes. Just replace the color hex codes for the ones you want. As the names implies, the colors that end in `light` are for the light theme, and the ones that end in `dark` are for the dark theme. It is setup to take your browser's settings, so if you're using a dark theme it loads the dark colors.
+
+To change the fonts, you need to install them first, see next session. After installing them, just replace each field with the font names. The `fancy` and `display` fields are for headers on articles and map markers, fancy is usually for fancier stuff as the name suggest, display is supposed to more readable. The `serif` field is for most readable texts, such as the paragraphs in articles. Finally, `sans` is for everything else.
+
+#### Installing new fonts
+
+The [assets/fonts/fonts.css](assets/fonts/fonts.css) file loads fonts from services that host them, such as [Google Fonts](https://fonts.google.com). You can install from any other site that hosts free fonts, but [Google Fonts](https://fonts.google.com) is the easiest. To use it, choose a font from it and click the __Get Font__ button on the font's page. It will add it to your "cart" even though you're not shopping. You can go back to browsing and pick all the fonts you want. When you're done, click you cart then click the __Get embedded code__ button. You'll go to a page with some code for you to copy paste. Choose __@import__ and just paste the code that's between the `<style>` and `</style>` lines in your [assets/fonts/fonts.css](assets/fonts/fonts.css) file. It's usually just a single line, although a very long one depending on the fonts you picked.
+
+Having done that, you need to put the font names on your [assets/theme/index.js](assets/theme/index.js) file. See section above.
 
 ## Deploy
 
