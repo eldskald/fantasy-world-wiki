@@ -8,10 +8,10 @@ const theme = {
         "bg-dark": "#1f212f",
     },
     fonts: {
-        fancy: ['"Cinzel Decorative"', "serif"],
-        display: ['"Cinzel"', "serif"],
-        serif: ['"Alegreya"', "serif"],
-        sans: ['"Alegreya Sans SC"', "sans-serif"],
+        fancy: ['"Cinzel Decorative"'],
+        display: ['"Cinzel"'],
+        serif: ['"Alegreya"'],
+        sans: ['"Alegreya Sans SC"'],
     },
 };
 
