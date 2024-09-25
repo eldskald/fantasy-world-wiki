@@ -9,7 +9,7 @@ export default [
         rules: {
             "no-console": "error",
         },
-        ignores: ["build/", ".github/"],
+        ignores: ["build/", ".github/", "assets/"],
     },
     pluginJs.configs.recommended,
     eslintConfigPrettier,
