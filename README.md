@@ -18,7 +18,7 @@ Run the following script to build:
 npm run build
 ```
 
-You can't run the app without building first. It will create a `/build` directory with some files `index.html` is sourcing directly. It is building for `tailwindcss` right now, so if you change any `.css` file or the `tailwindcss` classes used, you should rebuild to update and see the changes.
+You can't run the app without building first. It will create a `/build` directory with some files `index.html` is sourcing directly. It is building for `tailwindcss` and the articles, so if you change any `.css` file, the `tailwindcss` classes used in `.html` or `.js` files, or have changed the articles in [assets/articles](assets/articles), you should rebuild to update and see the changes.
 
 Having built, you now need to setup your `.env` file:
 
@@ -53,9 +53,13 @@ To change the fonts, you need to install them first, see next session. After ins
 
 #### Installing new fonts
 
-The [assets/fonts/fonts.css](assets/fonts/fonts.css) file loads fonts from services that host them, such as [Google Fonts](https://fonts.google.com). You can install from any other site that hosts free fonts, but [Google Fonts](https://fonts.google.com) is the easiest. To use it, choose a font from it and click the __Get Font__ button on the font's page. It will add it to your "cart" even though you're not shopping. You can go back to browsing and pick all the fonts you want. When you're done, click you cart then click the __Get embedded code__ button. You'll go to a page with some code for you to copy paste. Choose __@import__ and just paste the code that's between the `<style>` and `</style>` lines in your [assets/fonts/fonts.css](assets/fonts/fonts.css) file. It's usually just a single line, although a very long one depending on the fonts you picked.
+The [assets/fonts/fonts.css](assets/fonts/fonts.css) file loads fonts from services that host them, such as [Google Fonts](https://fonts.google.com). You can install from any other site that hosts free fonts, but [Google Fonts](https://fonts.google.com) is the easiest. To use it, choose a font from it and click the **Get Font** button on the font's page. It will add it to your "cart" even though you're not shopping. You can go back to browsing and pick all the fonts you want. When you're done, click you cart then click the **Get embedded code** button. You'll go to a page with some code for you to copy paste. Choose **@import** and just paste the code that's between the `<style>` and `</style>` lines in your [assets/fonts/fonts.css](assets/fonts/fonts.css) file. It's usually just a single line, although a very long one depending on the fonts you picked.
 
 Having done that, you need to put the font names on your [assets/theme/index.js](assets/theme/index.js) file. See section above.
+
+#### Articles
+
+Every `.html` file in [assets/articles](assets/articles) is considered an article and will show up on the page if you go to `url?article=<article filename>`. After adding new articles, removing them or updating any file, it will automatically detect the changes during the build step and will catch the changes.
 
 ## Deploy
 

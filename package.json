@@ -11,7 +11,8 @@
         "lint": "npx eslint .",
         "format": "npx prettier . --write",
         "build:tailwindcss": "npx tailwindcss -i ./src/main.css -o ./build/output.css --minify",
-        "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss"
+        "build:articles": "node src/build/articles.js",
+        "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss && npm run build:articles"
     },
     "devDependencies": {
         "@eslint/js": "^9.11.0",
