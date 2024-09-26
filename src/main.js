@@ -1,4 +1,10 @@
 import articles from "./content/articles.js";
+import changeState from "./utils/change-state.js";
+
+function toArticle(title) {
+    changeState({ article: title });
+    detectArticle();
+}
 
 function detectArticle() {
     const params = new URLSearchParams(window.location.search);
@@ -15,9 +21,12 @@ function detectArticle() {
     });
 
     if (!found) {
-        params.delete("article");
-        window.location.search = params.toString();
+        toArticle("");
     }
 }
 
-detectArticle();
+function onLoad() {
+    detectArticle();
+}
+
+onLoad();
