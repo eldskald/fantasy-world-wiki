@@ -1,32 +1,12 @@
-import articles from "./content/articles.js";
-import changeState from "./utils/change-state.js";
+import { detectArticle, toArticle } from "./navigation/articles.js";
+import { setLinks } from "./navigation/set-links.js";
 
-function toArticle(title) {
-    changeState({ article: title });
-    detectArticle();
-}
+// This is to allow HTML documents to call `toArticle`, since this is a module
+// type script we can't just do things like `onclick="toArticle('article')"`
+// because the script is deferred, so we put these functions on window where
+// they will be accessible to buttons
+window.toArticle = toArticle;
 
-function detectArticle() {
-    const params = new URLSearchParams(window.location.search);
-    const query = params.get("article");
-    if (!query) return;
-
-    let found = false;
-    articles.forEach((article) => {
-        if (article.name === query) {
-            const container = document.getElementById("article-container");
-            container.innerHTML = article.content;
-            found = true;
-        }
-    });
-
-    if (!found) {
-        toArticle("");
-    }
-}
-
-function onLoad() {
-    detectArticle();
-}
-
-onLoad();
+// These final lines are just the loading when the page is loaded the first time
+detectArticle();
+setLinks();
