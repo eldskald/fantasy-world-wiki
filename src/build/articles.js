@@ -1,39 +1,31 @@
-import * as fs from "fs";
+import fs from "fs";
+import process from "process";
 
-const articlesPath = "assets/articles/";
-const buildTarget = "build/articles.js";
-
-function readAssetsArticlesFiles() {
-    console.log("Reading articles..."); // eslint-disable-line
-    try {
-        const files = fs
-            .readdirSync(articlesPath)
-            .filter((file) => file.split(".").at(-1) === "html");
-        const articles = [];
-        files.forEach((file) => {
-            articles.push({
-                name: file.slice(0, -5),
-                content: fs.readFileSync(articlesPath + file, {
-                    encoding: "utf8",
-                }),
-            });
+export function readAssetsArticlesFiles(articlesPath) {
+    const files = fs
+        .readdirSync(articlesPath)
+        .filter((file) => file.split(".").at(-1) === "html");
+    const articles = [];
+    files.forEach((file) => {
+        articles.push({
+            name: file.slice(0, -5),
+            content: fs.readFileSync(articlesPath + file, {
+                encoding: "utf8",
+            }),
         });
-        console.log("Articles read successfully."); // eslint-disable-line
-        return articles;
-    } catch (error) {
-        console.log(error); // eslint-disable-line
-    }
+    });
+    return articles;
 }
 
-function saveArticles(articles) {
-    console.log("Building articles..."); // eslint-disable-line
+export function buildArticles(articlesPath, buildPath) {
+    process.stdout.write("Building articles...");
     try {
+        const articles = readAssetsArticlesFiles(articlesPath);
         const data = "export default " + JSON.stringify(articles);
-        fs.writeFileSync(buildTarget, data);
-        console.log("Build successful."); // eslint-disable-line
+        fs.writeFileSync(buildPath, data);
+        process.stdout.write("\x1b[32m Success\n");
     } catch (error) {
-        console.log(error); // eslint-disable-line
+        process.stdout.write("\x1b[31m Failed\n\n");
+        console.error(error); // eslint-disable-line
     }
 }
-
-saveArticles(readAssetsArticlesFiles());
