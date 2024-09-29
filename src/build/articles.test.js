@@ -12,6 +12,7 @@ const writeFileSyncSpy = jest.spyOn(fs, "writeFileSync");
 const writeSpy = jest
     .spyOn(process.stdout, "write")
     .mockImplementation(() => {});
+const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => {});
 const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("readAssetsArticlesFiles", () => {
@@ -101,6 +102,10 @@ describe("buildArticles", () => {
             expect(writeSpy).toHaveBeenCalledWith("Building articles...");
             expect(writeSpy).toHaveBeenCalledWith("\x1b[32m Success\n");
         });
+
+        test("should exit with no errors", () => {
+            expect(exitSpy).toHaveBeenCalledWith(0);
+        });
     });
 
     describe("when an error is thrown", () => {
@@ -121,6 +126,10 @@ describe("buildArticles", () => {
             expect(writeSpy).toHaveBeenCalledWith("Building articles...");
             expect(writeSpy).toHaveBeenCalledWith("\x1b[31m Failed\n\n");
             expect(errorSpy).toHaveBeenCalledWith("mock error");
+        });
+
+        test("should exit with errors", () => {
+            expect(exitSpy).toHaveBeenCalledWith(1);
         });
     });
 });
