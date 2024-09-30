@@ -14,7 +14,7 @@ export default [
         ignores: ["build/", ".github/", "assets/"],
     },
     {
-        files: ["src/**/*.test.js"],
+        files: ["**/*.test.js"],
         ...jest.configs["flat/recommended"],
         rules: {
             ...jest.configs["flat/recommended"].rules,

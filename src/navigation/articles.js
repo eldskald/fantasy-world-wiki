@@ -1,5 +1,6 @@
-import { setLinks } from "./set-links.js";
-import articles from "../content/articles.js";
+import { setAnchors } from "../components/anchor.js";
+import { changeSearchParam } from "./change-search-param.js";
+import { articles } from "../content/articles.js";
 
 // This one detects the article on the URL query strings and loads it
 export function detectArticle() {
@@ -20,17 +21,12 @@ export function detectArticle() {
     }
 
     container.innerHTML = "";
+    changeSearchParam("article", "");
 }
 
 // This one changes the article on the URL query strings without reloading
 export function toArticle(title) {
-    const url = new URL(window.location.href);
-    if (title) {
-        url.searchParams.set("article", title);
-    } else {
-        url.searchParams.delete("article");
-    }
-    window.history.pushState(null, "", url.toString());
+    changeSearchParam("article", title);
     detectArticle();
-    setLinks();
+    setAnchors();
 }

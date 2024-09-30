@@ -1,10 +1,9 @@
 import fs from "fs";
 import process from "process";
 
-export function readAssetsArticlesFiles(articlesPath) {
-    const files = fs
-        .readdirSync(articlesPath)
-        .filter((file) => file.split(".").at(-1) === "html");
+function readAssetsArticlesFiles(articlesPath) {
+    let files = fs.readdirSync(articlesPath);
+    files = files.filter((file) => file.split(".").at(-1) === "html");
     const articles = [];
     files.forEach((file) => {
         articles.push({
