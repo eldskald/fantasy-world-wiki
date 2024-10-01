@@ -87,11 +87,7 @@ describe("buildArticles", () => {
                 result.data = data;
             });
             expectedData =
-                "export default " +
-                JSON.stringify([
-                    { name: "file", content: "" },
-                    { name: "other", content: "" },
-                ]);
+                "export default " + JSON.stringify({ file: "", other: "" });
             buildArticles(articlesPath, buildPath);
         });
 

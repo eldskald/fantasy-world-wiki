@@ -4,13 +4,10 @@ import process from "process";
 function readAssetsArticlesFiles(articlesPath) {
     let files = fs.readdirSync(articlesPath);
     files = files.filter((file) => file.split(".").at(-1) === "html");
-    const articles = [];
+    const articles = {};
     files.forEach((file) => {
-        articles.push({
-            name: file.slice(0, -5),
-            content: fs.readFileSync(articlesPath + file, {
-                encoding: "utf8",
-            }),
+        articles[file.slice(0, -5)] = fs.readFileSync(articlesPath + file, {
+            encoding: "utf8",
         });
     });
     return articles;

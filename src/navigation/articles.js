@@ -8,16 +8,9 @@ export function detectArticle() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("article");
 
-    if (!query) {
-        container.innerHTML = "";
+    if (articles[query]) {
+        container.innerHTML = articles[query];
         return;
-    }
-
-    for (let i = 0; i < articles.length; i++) {
-        if (articles[i].name === query) {
-            container.innerHTML = articles[i].content;
-            return;
-        }
     }
 
     container.innerHTML = "";
