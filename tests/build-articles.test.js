@@ -5,7 +5,7 @@
 import fs from "fs";
 import process from "process";
 import { jest, describe, beforeEach, expect, test } from "@jest/globals";
-import { buildArticles } from "../src/build/articles.js";
+import { buildArticles } from "../scripts/build-articles.js";
 
 const articlesPath = "somedir/";
 const buildPath = "mock/file.js";

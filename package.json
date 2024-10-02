@@ -10,7 +10,7 @@
         "dev": "source ./.env && python -m http.server $PORT",
         "lint": "npx eslint .",
         "format": "npx prettier . --write",
-        "build:tailwindcss": "npx tailwindcss -i ./src/main.css -o ./build/output.css --minify",
+        "build:tailwindcss": "npx tailwindcss -i ./src/stylesheet.css -o ./build/stylesheet.css --minify",
         "build:articles": "./bin/build-articles",
         "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss && npm run build:articles",
         "test": "NODE_OPTIONS='--experimental-vm-modules' jest"

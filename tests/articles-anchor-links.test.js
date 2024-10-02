@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { articles } from "../src/content/articles.js";
+import articles from "../build/articles.js";
 
 describe("articles anchor links", () => {
     const scenarios = Object.entries(articles).map((entry) => ({

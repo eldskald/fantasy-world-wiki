@@ -1,6 +1,5 @@
 import { setAnchors } from "../components/anchor.js";
 import { changeSearchParam } from "./change-search-param.js";
-import { articles } from "../content/articles.js";
 
 // This one detects the article on the URL query strings and loads it
 export function detectArticle() {
@@ -8,8 +7,8 @@ export function detectArticle() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("article");
 
-    if (articles[query]) {
-        container.innerHTML = articles[query];
+    if (window.imports.articles[query]) {
+        container.innerHTML = window.imports.articles[query];
         return;
     }
 
