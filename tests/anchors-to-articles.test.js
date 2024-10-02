@@ -1,14 +1,13 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import { articles } from "../src/content/articles.js";
+import { moddedData as articles } from "./mocks/articles.js";
 
 describe("anchors to articles", () => {
-    const someArticle = Object.entries(articles)[0];
-
     beforeEach(async () => {
         document.body.innerHTML = `
             <div id="article-container"></div>
-            <a id="test" toarticle="${someArticle[0]}"></a>"
+            <a id="test" toarticle="article1"></a>"
         `;
+        await import("./mocks/imports.js");
         await import("../src/main.js");
         document.getElementById("test").click();
     });
@@ -16,7 +15,7 @@ describe("anchors to articles", () => {
     test("should update search params and load article", () => {
         const container = document.getElementById("article-container");
         const params = new URL(document.location.href).searchParams;
-        expect(container.innerHTML).toBe(someArticle[1]);
-        expect(params.get("article")).toBe(someArticle[0]);
+        expect(container.innerHTML).toBe(articles.article1);
+        expect(params.get("article")).toBe("article1");
     });
 });
