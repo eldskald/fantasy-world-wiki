@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+import { buildMaps } from "../scripts/build-maps.js";
+
+buildMaps("assets/maps/", "build/maps.js");
