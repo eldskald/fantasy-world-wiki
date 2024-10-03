@@ -1,3 +1,4 @@
-import data from "../build/articles.js";
+import articles from "../build/articles.js";
+import maps from "../build/maps.js";
 
-window.imports = { articles: data };
+window.imports = { articles, maps };

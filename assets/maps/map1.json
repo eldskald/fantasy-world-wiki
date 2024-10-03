@@ -1,0 +1,22 @@
+{
+    "name": "map1",
+    "image": "map1.png",
+    "links": [
+        {
+            "name": "Test Article",
+            "toarticle": "test",
+            "pos": {
+                "x": 25,
+                "y": 25
+            }
+        },
+        {
+            "name": "Another Test",
+            "toarticle": "another-test",
+            "pos": {
+                "x": 65,
+                "y": 60
+            }
+        }
+    ]
+}

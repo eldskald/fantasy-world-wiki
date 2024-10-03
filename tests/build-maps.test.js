@@ -5,9 +5,9 @@
 import fs from "fs";
 import process from "process";
 import { jest, describe, beforeEach, expect, test } from "@jest/globals";
-import { buildArticles } from "../scripts/build-articles.js";
+import { buildMaps } from "../scripts/build-maps.js";
 
-const articlesPath = "somedir/";
+const mapsPath = "somedir/";
 const buildPath = "mock/file.js";
 
 const readFileSyncSpy = jest.spyOn(fs, "readFileSync");
@@ -20,7 +20,7 @@ const writeSpy = jest
 const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => {});
 const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-describe("buildArticles", () => {
+describe("buildMaps", () => {
     describe("when readdirSync throws an error", () => {
         beforeEach(() => {
             readFileSyncSpy.mockImplementation("");
@@ -28,7 +28,7 @@ describe("buildArticles", () => {
                 throw "mock error";
             });
             writeFileSyncSpy.mockImplementation(() => {});
-            buildArticles(articlesPath, buildPath);
+            buildMaps(mapsPath, buildPath);
         });
 
         test("should not write data to any file", () => {
@@ -36,7 +36,7 @@ describe("buildArticles", () => {
         });
 
         test("should log the process correctly", () => {
-            expect(writeSpy).toHaveBeenCalledWith("Building articles...");
+            expect(writeSpy).toHaveBeenCalledWith("Building maps...");
             expect(writeSpy).toHaveBeenCalledWith(
                 "\x1b[31m Failed \x1b[0m \n\n",
             );
@@ -53,9 +53,9 @@ describe("buildArticles", () => {
             readFileSyncSpy.mockImplementation(() => {
                 throw "mock error";
             });
-            readdirSyncSpy.mockReturnValue(["file.html"]);
+            readdirSyncSpy.mockReturnValue(["file.json"]);
             writeFileSyncSpy.mockImplementation(() => {});
-            buildArticles(articlesPath, buildPath);
+            buildMaps(mapsPath, buildPath);
         });
 
         test("should not write data to any file", () => {
@@ -63,7 +63,7 @@ describe("buildArticles", () => {
         });
 
         test("should log the process correctly", () => {
-            expect(writeSpy).toHaveBeenCalledWith("Building articles...");
+            expect(writeSpy).toHaveBeenCalledWith("Building maps...");
             expect(writeSpy).toHaveBeenCalledWith(
                 "\x1b[31m Failed \x1b[0m \n\n",
             );
@@ -82,9 +82,9 @@ describe("buildArticles", () => {
         beforeEach(() => {
             readFileSyncSpy.mockReturnValue("");
             readdirSyncSpy.mockReturnValue([
-                "file.html",
+                "file.json",
                 "nope.txt",
-                "other.html",
+                "other.json",
             ]);
             writeFileSyncSpy.mockImplementation((path, data) => {
                 result.path = path;
@@ -92,7 +92,7 @@ describe("buildArticles", () => {
             });
             expectedData =
                 "export default " + JSON.stringify({ file: "", other: "" });
-            buildArticles(articlesPath, buildPath);
+            buildMaps(mapsPath, buildPath);
         });
 
         test("should generate data correctly", () => {
@@ -104,7 +104,7 @@ describe("buildArticles", () => {
         });
 
         test("should log the process correctly", () => {
-            expect(writeSpy).toHaveBeenCalledWith("Building articles...");
+            expect(writeSpy).toHaveBeenCalledWith("Building maps...");
             expect(writeSpy).toHaveBeenCalledWith(
                 "\x1b[32m Success \x1b[0m \n",
             );

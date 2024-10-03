@@ -19,10 +19,10 @@ export function buildArticles(articlesPath, buildPath) {
         const articles = readAssetsArticlesFiles(articlesPath);
         const data = "export default " + JSON.stringify(articles);
         fs.writeFileSync(buildPath, data);
-        process.stdout.write("\x1b[32m Success\n");
+        process.stdout.write("\x1b[32m Success \x1b[0m \n");
         process.exit(0);
     } catch (error) {
-        process.stdout.write("\x1b[31m Failed\n\n");
+        process.stdout.write("\x1b[31m Failed \x1b[0m \n\n");
         console.error(error); // eslint-disable-line
         process.exit(1);
     }
