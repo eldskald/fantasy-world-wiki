@@ -1,3 +1,4 @@
-import { data } from "./articles.js";
+import { articles } from "./articles.js";
+import { maps } from "./maps.js";
 
-window.imports = { articles: data };
+window.imports = { articles, maps };

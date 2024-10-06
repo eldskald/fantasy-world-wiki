@@ -80,7 +80,7 @@ describe("buildMaps", () => {
         let expectedData = "";
 
         beforeEach(() => {
-            readFileSyncSpy.mockReturnValue("");
+            readFileSyncSpy.mockReturnValue("{}");
             readdirSyncSpy.mockReturnValue([
                 "file.json",
                 "nope.txt",
@@ -91,7 +91,7 @@ describe("buildMaps", () => {
                 result.data = data;
             });
             expectedData =
-                "export default " + JSON.stringify({ file: "", other: "" });
+                "export default " + JSON.stringify({ file: {}, other: {} });
             buildMaps(mapsPath, buildPath);
         });
 

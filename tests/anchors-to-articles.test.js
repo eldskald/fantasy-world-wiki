@@ -1,12 +1,13 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import { moddedData as articles } from "./mocks/articles.js";
+import { moddedArticles as articles } from "./mocks/articles.js";
 
 describe("anchors to articles", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
-            <div id="article-container"></div>
-            <a id="test" toarticle="article1"></a>"
-        `;
+                <div id="article-container"></div>
+                <div id="map-container"></div>
+                <a id="test" toarticle="article1"></a>
+            `;
         await import("./mocks/imports.js");
         await import("../src/main.js");
         document.getElementById("test").click();

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { changeSearchParam } from "../src/navigation/change-search-param.js";
-import { moddedData as articles } from "./mocks/articles.js";
+import { moddedArticles as articles } from "./mocks/articles.js";
 import fs from "fs";
 
 describe("article on load", () => {

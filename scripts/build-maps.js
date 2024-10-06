@@ -6,9 +6,11 @@ function readAssetsMapsFiles(mapsPath) {
     files = files.filter((file) => file.split(".").at(-1) === "json");
     const maps = {};
     files.forEach((file) => {
-        maps[file.slice(0, -5)] = fs.readFileSync(mapsPath + file, {
-            encoding: "utf8",
-        });
+        maps[file.slice(0, -5)] = JSON.parse(
+            fs.readFileSync(mapsPath + file, {
+                encoding: "utf8",
+            }),
+        );
     });
     return maps;
 }

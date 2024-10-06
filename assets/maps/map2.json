@@ -1,5 +1,5 @@
 {
-    "name": "Map One",
+    "name": "Map Two",
     "image": "map1.png",
     "links": [
         {
@@ -14,7 +14,7 @@
         {
             "name": "Another Test",
             "size": "medium",
-            "tomap": "map2",
+            "tomap": "map1",
             "pos": {
                 "x": "70%",
                 "y": "60%"
@@ -23,7 +23,7 @@
         {
             "name": "Test Article Small",
             "size": "small",
-            "tomap": "map2",
+            "tomap": "map1",
             "toarticle": "test",
             "pos": {
                 "x": "33%",
