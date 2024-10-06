@@ -1,5 +1,6 @@
 import { describe, expect, test } from "@jest/globals";
 import articles from "../build/articles.js";
+import maps from "../build/maps.js";
 
 describe("articles anchor links", () => {
     const scenarios = Object.entries(articles).map((entry) => ({
@@ -12,9 +13,13 @@ describe("articles anchor links", () => {
         const anchors = document.querySelectorAll("a");
         const badLinks = [];
         anchors.forEach((a) => {
-            const target = a.getAttribute("toarticle");
-            if (!Object.hasOwn(articles, target)) {
-                badLinks.push(target);
+            const targetArticle = a.getAttribute("toarticle");
+            if (targetArticle && !Object.hasOwn(articles, targetArticle)) {
+                badLinks.push(targetArticle);
+            }
+            const targetMap = a.getAttribute("tomap");
+            if (targetMap && !Object.hasOwn(maps, targetMap)) {
+                badLinks.push(targetMap);
             }
         });
 

@@ -4,6 +4,7 @@ describe("table of contents", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
             <div id="article-container"></div>
+            <div id="map-container"></div>
             <h2>Don't search this one</h1>
             <div>
                 <h1>Article title</h1>
