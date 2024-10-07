@@ -4,7 +4,8 @@ import { maps } from "./mocks/maps.js";
 describe("anchors to articles", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
-                <div id="article-container"></div>
+                <div id="article-container-inner"></div>
+                <div id="article-container-outer"></div>
                 <div id="map-container"></div>
                 <a id="test" tomap="map1"></a>
             `;

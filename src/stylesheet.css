@@ -33,6 +33,20 @@
 
     a {
         @apply text-primary-light dark:text-primary-dark underline hover:brightness-125;
+
+        @layer components {
+            .map-large {
+                @apply text-5xl text-shadow font-fancy font-bold absolute -translate-x-1/2 -translate-y-1/2 no-underline;
+            }
+
+            .map-medium {
+                @apply text-3xl text-shadow font-fancy font-bold absolute -translate-x-1/2 -translate-y-1/2 no-underline;
+            }
+
+            .map-small {
+                @apply text-xl text-shadow-sm font-sans font-bold absolute -translate-x-1/2 -translate-y-1/2 no-underline;
+            }
+        }
     }
 
     button {
