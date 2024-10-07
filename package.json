@@ -13,7 +13,8 @@
         "build:tailwindcss": "npx tailwindcss -i ./src/stylesheet.css -o ./build/stylesheet.css --minify",
         "build:articles": "./bin/build-articles",
         "build:maps": "./bin/build-maps",
-        "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss && npm run build:articles && npm run build:maps",
+        "build:settings": "./bin/build-settings",
+        "build": "rm -rf build/ && mkdir build && npm run build:tailwindcss && npm run build:articles && npm run build:maps && npm run build:settings",
         "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
     },
     "devDependencies": {
