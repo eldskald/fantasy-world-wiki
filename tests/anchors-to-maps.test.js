@@ -7,7 +7,7 @@ describe("anchors to articles", () => {
                 <div id="article-container-inner"></div>
                 <div id="article-container-outer"></div>
                 <div id="map-container"></div>
-                <a id="test" tomap="map1"></a>
+                <a id="test" tomap="map2"></a>
             `;
         await import("./mocks/imports.js");
         await import("../src/main.js");
@@ -15,9 +15,9 @@ describe("anchors to articles", () => {
     });
 
     test("should update search params and load map", () => {
-        const map = maps["map1"];
+        const map = maps["map2"];
         const params = new URL(document.location.href).searchParams;
-        expect(params.get("map")).toBe("map1");
+        expect(params.get("map")).toBe("map2");
         const container = document.getElementById("map-container");
         const children = container.getElementsByTagName("*");
         expect(children[0].tagName).toBe("IMG");

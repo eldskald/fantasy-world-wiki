@@ -6,19 +6,21 @@ describe("table of contents", () => {
             <div id="article-container-inner"></div>
             <div id="article-container-outer"></div>
             <div id="map-container"></div>
-            <h2>Don't search this one</h1>
-            <div>
-                <h1>Article title</h1>
-                <p>some text for the intro</p>
-                <table-of-contents></table-of-contents>
-                <h2 id="first-section">First section</h2>
-                <p>more text</p>
-                <h3 id="some-subsection">Subsection</h3>
-                <h4>Subsubsection</h4>
-                <h5>Don't care at this point</h5>
-                <h6>sure yes</h6>
-                <h1 id="whynot">Why not</h1>
-                <h2 id="tests">tests</h2>
+            <div id="test">
+                <h2>Don't search this one</h2>
+                <div>
+                    <h1>Article title</h1>
+                    <p>some text for the intro</p>
+                    <table-of-contents></table-of-contents>
+                    <h2 id="first-section">First section</h2>
+                    <p>more text</p>
+                    <h3 id="some-subsection">Subsection</h3>
+                    <h4>Subsubsection</h4>
+                    <h5>Don't care at this point</h5>
+                    <h6>sure yes</h6>
+                    <h1 id="whynot">Why not</h1>
+                    <h2 id="tests">tests</h2>
+                </div>
             </div>
         `;
         await import("./mocks/imports.js");
@@ -26,7 +28,7 @@ describe("table of contents", () => {
     });
 
     test("Should search for headers and create links correctly", () => {
-        const anchors = document.querySelectorAll("a");
+        const anchors = document.getElementById("test").querySelectorAll("a");
         expect(anchors.length).toBe(6);
         expect(anchors[0].href).toBe("http://localhost/#first-section");
         expect(anchors[0].innerHTML).toBe("First section");
