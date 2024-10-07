@@ -4,7 +4,8 @@ import { maps } from "./mocks/maps.js";
 describe("anchors to articles", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
-                <div id="article-container"></div>
+                <div id="article-container-inner"></div>
+                <div id="article-container-outer"></div>
                 <div id="map-container"></div>
                 <a id="test" toarticle="article1" tomap="map1"></a>
             `;
@@ -17,10 +18,12 @@ describe("anchors to articles", () => {
         const params = new URL(document.location.href).searchParams;
         expect(params.get("article")).toBe("article1");
         expect(params.get("map")).toBe("map1");
-        const articleContainer = document.getElementById("article-container");
+        const inner = document.getElementById("article-container-inner");
+        const outer = document.getElementById("article-container-outer");
         // Can't use articles.article1 here because of the aditional map link
         // after setAnchors.
-        expect(articleContainer.innerHTML).toBe(`
+        expect(outer.getAttribute("data-hidden")).toBe("false");
+        expect(inner.innerHTML).toBe(`
         <h1>article1</h1>
         <p>content <a toarticle="article2" href="http://localhost/?article=article2&amp;map=map1" onclick="toArticle('article2'); return false;">article2</a> more content1</p>
     `);

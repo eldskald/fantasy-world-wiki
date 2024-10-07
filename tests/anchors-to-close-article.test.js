@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import { moddedArticles as articles } from "./mocks/articles.js";
+import { changeSearchParam } from "../src/navigation/change-search-param.js";
 
 describe("anchors to articles", () => {
     beforeEach(async () => {
@@ -7,8 +7,9 @@ describe("anchors to articles", () => {
                 <div id="article-container-inner"></div>
                 <div id="article-container-outer"></div>
                 <div id="map-container"></div>
-                <a id="test" toarticle="article1"></a>
+                <a id="test" toarticle=""></a>
             `;
+        changeSearchParam("article", "article1");
         await import("./mocks/imports.js");
         await import("../src/main.js");
         document.getElementById("test").click();
@@ -18,8 +19,8 @@ describe("anchors to articles", () => {
         const inner = document.getElementById("article-container-inner");
         const outer = document.getElementById("article-container-outer");
         const params = new URL(document.location.href).searchParams;
-        expect(inner.innerHTML).toBe(articles.article1);
-        expect(outer.getAttribute("data-hidden")).toBe("false");
-        expect(params.get("article")).toBe("article1");
+        expect(inner.innerHTML).toBe("");
+        expect(outer.getAttribute("data-hidden")).toBe("true");
+        expect(params.get("article")).toBeNull();
     });
 });

@@ -22,18 +22,13 @@ export function detectMap() {
         container.appendChild(img);
         map.links.forEach((link) => {
             const a = document.createElement("a");
-            if (link.size === "large")
-                a.className = "text-5xl text-shadow font-fancy";
-            else if (link.size === "medium")
-                a.className = "text-3xl text-shadow font-fancy";
-            else if (link.size === "small")
-                a.className = "text-xl text-shadow-sm font-sans";
-            a.className +=
-                " font-bold absolute -translate-x-1/2 -translate-y-1/2";
+            if (link.size === "large") a.className = "map-large";
+            else if (link.size === "medium") a.className = "map-medium";
+            else if (link.size === "small") a.className = "map-small";
             if (link.toarticle) a.setAttribute("toarticle", link.toarticle);
             if (link.tomap) a.setAttribute("tomap", link.tomap);
             a.innerHTML = link.name;
-            a.style = `top: ${link.pos.y}; left: ${link.pos.x}; text-decoration: none;`;
+            a.style = `top: ${link.pos.y}; left: ${link.pos.x};`;
             container.appendChild(a);
         });
         return;

@@ -7,17 +7,17 @@
 export function setAnchors() {
     const anchors = document.querySelectorAll("a");
     anchors.forEach((a) => {
-        const article = a.getAttribute("toarticle");
-        const map = a.getAttribute("tomap");
-        if (!article && !map) return;
+        if (!a.hasAttribute("toarticle") && !a.hasAttribute("tomap")) return;
 
         const url = new URL(window.location.href);
         let onclick = "";
-        if (article) {
+        if (a.hasAttribute("toarticle")) {
+            const article = a.getAttribute("toarticle");
             url.searchParams.set("article", article);
             onclick += `toArticle('${article}'); `;
         }
-        if (map) {
+        if (a.hasAttribute("tomap")) {
+            const map = a.getAttribute("tomap");
             url.searchParams.set("map", map);
             onclick += `toMap('${map}'); `;
         }

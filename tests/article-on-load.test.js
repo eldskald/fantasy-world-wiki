@@ -14,9 +14,11 @@ describe("article on load", () => {
     });
 
     test("should load article on start", () => {
-        const container = document.getElementById("article-container");
+        const inner = document.getElementById("article-container-inner");
+        const outer = document.getElementById("article-container-outer");
         const params = new URL(document.location.href).searchParams;
-        expect(container.innerHTML).toBe(articles.article1);
+        expect(outer.getAttribute("data-hidden")).toBe("false");
+        expect(inner.innerHTML).toBe(articles.article1);
         expect(params.get("article")).toBe("article1");
     });
 });

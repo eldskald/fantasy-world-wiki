@@ -3,7 +3,8 @@ import { beforeEach, describe, expect, test } from "@jest/globals";
 describe("table of contents", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
-            <div id="article-container"></div>
+            <div id="article-container-inner"></div>
+            <div id="article-container-outer"></div>
             <div id="map-container"></div>
             <h2>Don't search this one</h1>
             <div>
