@@ -8,15 +8,15 @@ describe("map on load", () => {
         document.body.innerHTML = fs.readFileSync("./index.html", {
             encoding: "utf8",
         });
-        changeSearchParam("map", "map1");
+        changeSearchParam("map", "map2");
         await import("./mocks/imports.js");
         await import("../src/main.js");
     });
 
     test("should load map on start", () => {
-        const map = maps["map1"];
+        const map = maps["map2"];
         const params = new URL(document.location.href).searchParams;
-        expect(params.get("map")).toBe("map1");
+        expect(params.get("map")).toBe("map2");
         const container = document.getElementById("map-container");
         const children = container.getElementsByTagName("*");
         expect(children[0].tagName).toBe("IMG");

@@ -1,5 +1,7 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { maps } from "./mocks/maps.js";
+import { settings } from "./mocks/settings.js";
+import { changeSearchParam } from "../src/navigation/change-search-param.js";
 
 describe("anchors to articles", () => {
     beforeEach(async () => {
@@ -7,27 +9,18 @@ describe("anchors to articles", () => {
                 <div id="article-container-inner"></div>
                 <div id="article-container-outer"></div>
                 <div id="map-container"></div>
-                <a id="test" toarticle="article1" tomap="map2"></a>
+                <a id="test" tomap=""></a>
             `;
+        changeSearchParam("map", "map2");
         await import("./mocks/imports.js");
         await import("../src/main.js");
         document.getElementById("test").click();
     });
 
     test("should update search params and load map", () => {
+        const map = maps[settings.defaultMap];
         const params = new URL(document.location.href).searchParams;
-        expect(params.get("article")).toBe("article1");
-        expect(params.get("map")).toBe("map2");
-        const inner = document.getElementById("article-container-inner");
-        const outer = document.getElementById("article-container-outer");
-        // Can't use articles.article1 here because of the aditional map link
-        // after setAnchors.
-        expect(outer.getAttribute("data-hidden")).toBe("false");
-        expect(inner.innerHTML).toBe(`
-        <h1>article1</h1>
-        <p>content <a toarticle="article2" href="http://localhost/?article=article2&amp;map=map2" onclick="toArticle('article2'); return false;">article2</a> more content1</p>
-    `);
-        const map = maps["map2"];
+        expect(params.get("map")).toBeNull();
         const container = document.getElementById("map-container");
         const children = container.getElementsByTagName("*");
         expect(children[0].tagName).toBe("IMG");
@@ -47,7 +40,7 @@ describe("anchors to articles", () => {
         expect(children[3].getAttribute("toarticle")).toBe(
             map.links[2].toarticle,
         );
-        expect(children[2].getAttribute("tomap")).toBe(map.links[1].tomap);
+        expect(children[2].getAttribute("tomap")).toBe(map.links[2].tomap);
         expect(children[3].innerHTML).toBe(map.links[2].name);
     });
 });
