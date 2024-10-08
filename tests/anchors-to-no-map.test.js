@@ -1,21 +1,14 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { maps } from "./mocks/maps.js";
 import { settings } from "./mocks/settings.js";
-import { changeSearchParam } from "../src/navigation/change-search-param.js";
+import { initDom } from "./utils/init-dom.js";
 
 describe("anchors to articles", () => {
     beforeEach(async () => {
-        document.body.innerHTML = `
-            <div id="article-container-inner"></div>
-            <div id="article-container-outer"></div>
-            <div id="close-article-btn"></div>
-            <div id="map-container"></div>
-            <a id="test" tomap=""></a>
-        `;
-        changeSearchParam("map", "map2");
-        await import("./mocks/imports.js");
-        await import("../src/main.js");
-        document.getElementById("test").click();
+        const test = document.createElement("a");
+        test.setAttribute("tomap", "");
+        await initDom([test], { map: "map2" });
+        test.click();
     });
 
     test("should update search params and load map", () => {

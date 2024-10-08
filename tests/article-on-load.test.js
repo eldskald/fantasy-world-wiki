@@ -1,16 +1,10 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import { changeSearchParam } from "../src/navigation/change-search-param.js";
 import { moddedArticles as articles } from "./mocks/articles.js";
-import fs from "fs";
+import { initDom } from "./utils/init-dom.js";
 
 describe("article on load", () => {
     beforeEach(async () => {
-        document.body.innerHTML = fs.readFileSync("./index.html", {
-            encoding: "utf8",
-        });
-        changeSearchParam("article", "article1");
-        await import("./mocks/imports.js");
-        await import("../src/main.js");
+        await initDom([], { article: "article1" });
     });
 
     test("should load article on start", () => {

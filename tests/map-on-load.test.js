@@ -1,16 +1,10 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import { changeSearchParam } from "../src/navigation/change-search-param.js";
 import { maps } from "./mocks/maps.js";
-import fs from "fs";
+import { initDom } from "./utils/init-dom.js";
 
 describe("map on load", () => {
     beforeEach(async () => {
-        document.body.innerHTML = fs.readFileSync("./index.html", {
-            encoding: "utf8",
-        });
-        changeSearchParam("map", "map2");
-        await import("./mocks/imports.js");
-        await import("../src/main.js");
+        await initDom([], { map: "map2" });
     });
 
     test("should load map on start", () => {
