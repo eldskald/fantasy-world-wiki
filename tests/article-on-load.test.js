@@ -1,24 +1,14 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import { changeSearchParam } from "../src/navigation/change-search-param.js";
-import { moddedArticles as articles } from "./mocks/articles.js";
-import fs from "fs";
+import { moddedArticles } from "./mocks/articles.js";
+import { initDom } from "./utils/init-dom.js";
+import { isArticleLoaded } from "./utils/is-article-loaded.js";
 
 describe("article on load", () => {
     beforeEach(async () => {
-        document.body.innerHTML = fs.readFileSync("./index.html", {
-            encoding: "utf8",
-        });
-        changeSearchParam("article", "article1");
-        await import("./mocks/imports.js");
-        await import("../src/main.js");
+        await initDom([], { article: "article1" });
     });
 
     test("should load article on start", () => {
-        const inner = document.getElementById("article-container-inner");
-        const outer = document.getElementById("article-container-outer");
-        const params = new URL(document.location.href).searchParams;
-        expect(outer.getAttribute("data-hidden")).toBe("false");
-        expect(inner.innerHTML).toBe(articles.article1);
-        expect(params.get("article")).toBe("article1");
+        expect(isArticleLoaded("article1", moddedArticles.article1)).toBe(true);
     });
 });
