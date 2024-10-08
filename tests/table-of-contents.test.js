@@ -5,6 +5,7 @@ describe("table of contents", () => {
         document.body.innerHTML = `
             <div id="article-container-inner"></div>
             <div id="article-container-outer"></div>
+            <div id="close-article-btn"></div>
             <div id="map-container"></div>
             <div id="test">
                 <h2>Don't search this one</h2>

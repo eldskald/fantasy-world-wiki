@@ -4,11 +4,12 @@ import { changeSearchParam } from "../src/navigation/change-search-param.js";
 describe("anchors to articles", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
-                <div id="article-container-inner"></div>
-                <div id="article-container-outer"></div>
-                <div id="map-container"></div>
-                <a id="test" toarticle=""></a>
-            `;
+            <div id="article-container-inner"></div>
+            <div id="article-container-outer"></div>
+            <div id="close-article-btn"></div>
+            <div id="map-container"></div>
+            <a id="test" toarticle=""></a>
+        `;
         changeSearchParam("article", "article1");
         await import("./mocks/imports.js");
         await import("../src/main.js");
