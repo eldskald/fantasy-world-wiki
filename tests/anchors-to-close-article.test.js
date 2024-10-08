@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { initDom } from "./utils/init-dom.js";
+import { isArticleLoaded } from "./utils/is-article-loaded.js";
 
 describe("anchors to articles", () => {
     beforeEach(async () => {
@@ -10,11 +11,6 @@ describe("anchors to articles", () => {
     });
 
     test("should update search params and load article", () => {
-        const inner = document.getElementById("article-container-inner");
-        const outer = document.getElementById("article-container-outer");
-        const params = new URL(document.location.href).searchParams;
-        expect(inner.innerHTML).toBe("");
-        expect(outer.getAttribute("data-hidden")).toBe("true");
-        expect(params.get("article")).toBeNull();
+        expect(isArticleLoaded(null, "")).toBe(true);
     });
 });

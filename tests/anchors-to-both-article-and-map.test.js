@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { maps } from "./mocks/maps.js";
 import { initDom } from "./utils/init-dom.js";
+import { isArticleLoaded } from "./utils/is-article-loaded.js";
 
 describe("anchors to articles", () => {
     beforeEach(async () => {
@@ -12,21 +13,19 @@ describe("anchors to articles", () => {
     });
 
     test("should update search params and load map", () => {
-        const params = new URL(document.location.href).searchParams;
-        expect(params.get("article")).toBe("article1");
-        expect(params.get("map")).toBe("map2");
-        const inner = document.getElementById("article-container-inner");
-        const outer = document.getElementById("article-container-outer");
-        // Can't use articles.article1 here because of the aditional map link
-        // after setAnchors.
-        expect(outer.getAttribute("data-hidden")).toBe("false");
-        expect(inner.innerHTML).toBe(`
+        // Can't use moddedArticles.article1 here because of the aditional map
+        // link after setAnchors.
+        const moddedArticle = `
         <h1>article1</h1>
         <p>content <a toarticle="article2" href="http://localhost/?article=article2&amp;map=map2" onclick="toArticle('article2'); return false;">article2</a> more content1</p>
-    `);
+    `;
+        expect(isArticleLoaded("article1", moddedArticle)).toBe(true);
+
+        const params = new URL(document.location.href).searchParams;
         const map = maps["map2"];
         const container = document.getElementById("map-container");
         const children = container.getElementsByTagName("*");
+        expect(params.get("map")).toBe("map2");
         expect(children[0].tagName).toBe("IMG");
         expect(children[0].src).toBe(
             "http://localhost/assets/images/" + map.image,
