@@ -8,6 +8,9 @@ customElements.define("table-of-contents", TableOfContents);
 window.toArticle = toArticle;
 window.toMap = toMap;
 
+document.getElementById("close-article-btn").innerHTML =
+    window.imports.settings.labels.closeArticle;
+
 detectArticle();
 detectMap();
 setAnchors();

@@ -4,11 +4,12 @@ import { moddedArticles as articles } from "./mocks/articles.js";
 describe("anchors to articles", () => {
     beforeEach(async () => {
         document.body.innerHTML = `
-                <div id="article-container-inner"></div>
-                <div id="article-container-outer"></div>
-                <div id="map-container"></div>
-                <a id="test" toarticle="article1"></a>
-            `;
+            <div id="article-container-inner"></div>
+            <div id="article-container-outer"></div>
+            <div id="close-article-btn"></div>
+            <div id="map-container"></div>
+            <a id="test" toarticle="article1"></a>
+        `;
         await import("./mocks/imports.js");
         await import("../src/main.js");
         document.getElementById("test").click();

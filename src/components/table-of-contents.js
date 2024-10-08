@@ -7,7 +7,7 @@ export class TableOfContents extends HTMLElement {
         const headers =
             this.parentElement.querySelectorAll("h2, h3, h4, h5, h6");
         const tocHeader = document.createElement("h3");
-        tocHeader.innerHTML = "Table of Contents";
+        tocHeader.innerHTML = window.imports.settings.labels.tableOfContents;
         this.appendChild(tocHeader);
         const list = document.createElement("ul");
         this.appendChild(list);
