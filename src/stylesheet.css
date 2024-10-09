@@ -4,31 +4,31 @@
 
 @layer components {
     h1 {
-        @apply text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+        @apply mt-8 mb-4 text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
     }
 
     h2 {
-        @apply text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+        @apply mt-10 mb-2 text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark border-primary-light dark:border-primary-dark border-b-2;
     }
 
     h3 {
-        @apply text-4xl font-display text-primary-light dark:text-primary-dark;
+        @apply mt-6 text-4xl font-display font-bold text-primary-light dark:text-primary-dark;
     }
 
     h4 {
-        @apply text-3xl font-display text-primary-light dark:text-primary-dark;
+        @apply mt-4 text-2xl font-display font-bold text-primary-light dark:text-primary-dark;
     }
 
     h5 {
-        @apply text-2xl font-sans text-fg-light font-bold dark:text-fg-dark;
+        @apply mt-4 text-2xl font-sans font-bold text-fg-light dark:text-fg-dark;
     }
 
     h6 {
-        @apply text-2xl font-sans text-fg-light dark:text-fg-dark;
+        @apply mt-4 text-2xl font-sans text-fg-light dark:text-fg-dark;
     }
 
     p {
-        @apply font-serif text-lg text-fg-light dark:text-fg-dark;
+        @apply mb-4 indent-10 leading-normal font-serif text-lg text-fg-light dark:text-fg-dark;
     }
 
     a {
