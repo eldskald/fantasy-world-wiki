@@ -18,15 +18,14 @@ export class TableOfContents extends HTMLElement {
             const a = document.createElement("a");
             a.href = `#${header.id}`;
             a.innerHTML = header.innerHTML;
-            a.className = "font-sans";
             if (header.tagName === "H3") {
-                a.className += " ml-2";
+                a.className = "font-sans ml-4";
             } else if (header.tagName === "H4") {
-                a.className += " ml-4";
+                a.className = "font-sans ml-8";
             } else if (header.tagName === "H5") {
-                a.className += " ml-6";
+                a.className = "font-sans ml-12";
             } else if (header.tagName === "H6") {
-                a.className += " ml-8";
+                a.className = "font-sans ml-16";
             }
             li.appendChild(a);
             list.appendChild(li);
