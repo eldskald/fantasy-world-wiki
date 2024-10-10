@@ -9,5 +9,6 @@ export default {
             fontFamily: theme.fonts,
         },
     },
+    darkMode: "selector",
     plugins: [],
 };

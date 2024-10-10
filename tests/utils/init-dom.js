@@ -2,6 +2,9 @@ import { changeSearchParam } from "../../src/navigation/change-search-param.js";
 import fs from "fs";
 
 export async function initDom(additionalElements = [], searchParams = {}) {
+    // Mock window.matchMedia because it doesn't exist on JSDOM.
+    window.matchMedia = () => ({ matches: true });
+
     // Load index.html and removes the first two and the last lines,
     // leaving only the head and body elements.
     const data = fs.readFileSync("./index.html", { encoding: "utf8" });
