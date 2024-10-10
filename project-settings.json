@@ -1,7 +1,9 @@
 {
     "defaultMap": "map1",
     "labels": {
-        "closeArticle": "Close",
+        "closeArticle": "Close Article",
+        "darkMode": "Dark Mode",
+        "lightMode": "Light Mode",
         "tableOfContents": "Table of Contents"
     }
 }
