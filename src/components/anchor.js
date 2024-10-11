@@ -1,3 +1,7 @@
+import { changeSearchParam } from "../navigation/change-search-param.js";
+import { detectArticle } from "../navigation/articles.js";
+import { detectMap } from "../navigation/maps.js";
+
 // This is to override the default behavior of anchors (<a></a> tags). We want
 // them to not reload the page, just change search params and re-render. This
 // function scans for anchors and does that. We're using the custom attributes
@@ -9,20 +13,27 @@ export function setAnchors() {
     anchors.forEach((a) => {
         if (!a.hasAttribute("toarticle") && !a.hasAttribute("tomap")) return;
 
+        const newState = {};
         const url = new URL(window.location.href);
-        let onclick = "";
+        url.hash = "";
         if (a.hasAttribute("toarticle")) {
             const article = a.getAttribute("toarticle");
+            newState.article = article;
             url.searchParams.set("article", article);
-            onclick += `toArticle('${article}'); `;
         }
         if (a.hasAttribute("tomap")) {
             const map = a.getAttribute("tomap");
+            newState.map = map;
             url.searchParams.set("map", map);
-            onclick += `toMap('${map}'); `;
         }
-        onclick += "return false;";
+
         a.setAttribute("href", url.toString());
-        a.setAttribute("onclick", onclick);
+        a.onclick = () => {
+            changeSearchParam(newState);
+            if ("article" in newState) detectArticle();
+            if ("map" in newState) detectMap();
+            setAnchors();
+            return false;
+        };
     });
 }

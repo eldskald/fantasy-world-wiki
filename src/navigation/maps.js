@@ -1,4 +1,3 @@
-import { setAnchors } from "../components/anchor.js";
 import { changeSearchParam } from "./change-search-param.js";
 
 const imagesPath = "./assets/images/";
@@ -34,7 +33,6 @@ function loadMap(data) {
     });
 }
 
-// This one detects the article on the URL query strings and loads it
 export function detectMap() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("map");
@@ -51,14 +49,7 @@ export function detectMap() {
         return;
     }
 
-    changeSearchParam("map", "");
+    changeSearchParam({ map: "" });
     const defaultMap = window.imports.settings.defaultMap;
     loadMap(window.imports.maps[defaultMap]);
-}
-
-// This one changes the map on the URL query strings without reloading
-export function toMap(title) {
-    changeSearchParam("map", title);
-    detectMap();
-    setAnchors();
 }
