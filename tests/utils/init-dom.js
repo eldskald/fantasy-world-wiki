@@ -20,9 +20,7 @@ export async function initDom(additionalElements = [], searchParams = {}) {
     additionalElements.forEach((element) => {
         document.body.appendChild(element);
     });
-    Object.entries(searchParams).forEach((entry) => {
-        changeSearchParam(entry[0], entry[1]);
-    });
+    changeSearchParam(searchParams);
 
     // Load the scripts. Keep in mind <script> tags don't work on JSDOM,
     // so we load scripts directly which works in the same way because
