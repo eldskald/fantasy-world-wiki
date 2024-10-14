@@ -2,6 +2,8 @@ import { changeSearchParam } from "./change-search-param.js";
 
 const imagesPath = "./assets/images/";
 
+let current = "";
+
 function loadMap(data) {
     const container = document.getElementById("map-container");
     container.innerHTML = "";
@@ -37,8 +39,9 @@ export function detectMap() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("map");
 
-    if (query === window.imports.settings.defaultMap) {
-        changeSearchParam("map", "");
+    if (query === current) return;
+
+    if (query === null) {
         const defaultMap = window.imports.settings.defaultMap;
         loadMap(window.imports.maps[defaultMap]);
         return;
@@ -49,7 +52,7 @@ export function detectMap() {
         return;
     }
 
-    changeSearchParam({ map: "" });
     const defaultMap = window.imports.settings.defaultMap;
     loadMap(window.imports.maps[defaultMap]);
+    changeSearchParam({ map: "" });
 }
