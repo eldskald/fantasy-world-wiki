@@ -19,19 +19,28 @@ export function setAnchors() {
         if (a.hasAttribute("toarticle")) {
             const article = a.getAttribute("toarticle");
             newState.article = article;
-            url.searchParams.set("article", article);
+            if (article === "") {
+                url.searchParams.delete("article");
+            } else {
+                url.searchParams.set("article", article);
+            }
         }
         if (a.hasAttribute("tomap")) {
             const map = a.getAttribute("tomap");
-            newState.map = map;
-            url.searchParams.set("map", map);
+            if (map === window.imports.settings.defaultMap || map === "") {
+                newState.map = "";
+                url.searchParams.delete("map");
+            } else {
+                newState.map = map;
+                url.searchParams.set("map", map);
+            }
         }
 
         a.setAttribute("href", url.toString());
         a.onclick = () => {
             changeSearchParam(newState);
-            if ("article" in newState) detectArticle();
-            if ("map" in newState) detectMap();
+            detectArticle();
+            detectMap();
             setAnchors();
             return false;
         };
