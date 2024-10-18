@@ -5,6 +5,7 @@ const imagesPath = "./assets/images/";
 let current = "";
 
 function loadMap(data) {
+    const mainContainer = document.getElementById("main-container");
     const container = document.getElementById("map-container");
     container.innerHTML = "";
     const img = document.createElement("img");
@@ -13,7 +14,7 @@ function loadMap(data) {
     img.className = "h-full w-full absolute";
     img.onload = () => {
         const ratio = img.naturalWidth / img.naturalHeight;
-        document.body.style = `aspect-ratio: ${ratio}`;
+        mainContainer.style = `aspect-ratio: ${ratio}`;
     };
     container.appendChild(img);
     data.links.forEach((link) => {
