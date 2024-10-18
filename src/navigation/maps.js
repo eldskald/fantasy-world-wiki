@@ -20,14 +20,20 @@ function loadMap(data) {
     data.links.forEach((link) => {
         const a = document.createElement("a");
         if (link.size === "large")
-            a.className =
-                "text-5xl text-shadow font-fancy font-bold absolute -translate-x-1/2 -translate-y-1/2 no-underline";
+            a.className = `
+                text-5xl text-shadow font-fancy font-bold absolute
+                -translate-x-1/2 -translate-y-1/2 no-underline
+            `;
         else if (link.size === "medium")
-            a.className =
-                "text-3xl text-shadow font-fancy font-bold absolute -translate-x-1/2 -translate-y-1/2 no-underline";
+            a.className = `
+                text-3xl text-shadow font-fancy font-bold absolute
+                -translate-x-1/2 -translate-y-1/2 no-underline
+            `;
         else if (link.size === "small")
-            a.className =
-                "text-xl text-shadow-sm font-sans font-bold absolute -translate-x-1/2 -translate-y-1/2 no-underline";
+            a.className = `
+                text-xl text-shadow-sm font-sans font-bold absolute
+                -translate-x-1/2 -translate-y-1/2 no-underline
+            `;
         if (link.toarticle) a.setAttribute("toarticle", link.toarticle);
         if (link.tomap) a.setAttribute("tomap", link.tomap);
         a.innerHTML = link.name;
