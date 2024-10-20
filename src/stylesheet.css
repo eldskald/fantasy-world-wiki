@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
     h1 {
-        @apply mt-8 mb-4 text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+        @apply mt-8 mb-4 clear-both text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
     }
 
     h2 {
-        @apply mt-10 mb-2 text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark border-primary-light dark:border-primary-dark border-b-2;
+        @apply mt-10 mb-2 clear-both text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark border-primary-light dark:border-primary-dark border-b-2;
     }
 
     h3 {
-        @apply mt-6 text-4xl font-display font-bold text-primary-light dark:text-primary-dark;
+        @apply mt-6 clear-both text-4xl font-display font-bold text-primary-light dark:text-primary-dark;
     }
 
     h4 {
@@ -28,49 +28,180 @@
     }
 
     p {
-        @apply mb-4 indent-10 leading-normal font-serif text-lg text-fg-light dark:text-fg-dark;
+        @apply mb-4 indent-10 leading-normal font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
     }
 
     a {
         @apply text-primary-light dark:text-primary-dark underline hover:brightness-125;
     }
 
+    table {
+        @apply my-4 w-full font-serif text-lg text-fg-light dark:text-fg-dark text-center table-auto;
+
+        tr:nth-child(even) {
+            @apply bg-opacity-10 bg-black dark:bg-white dark:bg-opacity-10;
+        }
+
+        th,
+        td {
+            @apply px-2;
+        }
+
+        caption {
+            @apply text-left caption-bottom;
+        }
+    }
+
     button {
         @apply px-3 h-8 text-lg text-fg-light dark:text-fg-dark font-sans font-semibold rounded border border-primary-light bg-primary-light dark:border-primary-dark dark:bg-primary-dark duration-100 ease-in-out hover:brightness-125 active:scale-90 disabled:opacity-50;
-
-        @layer components {
-            .outlined {
-                @apply text-primary-light dark:text-primary-dark bg-transparent;
-            }
-
-            .sm {
-                @apply h-6 text-sm px-2;
-            }
-
-            .lg {
-                @apply h-10 text-2xl px-4;
-            }
-        }
     }
 }
 
-.text-shadow {
-    text-shadow:
-        0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5),
-        -0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5),
-        0.25rem -0.25rem 1rem rgba(0, 0, 0, 0.5),
-        -0.25rem -0.25rem 1rem rgba(0, 0, 0, 0.5),
-        0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
-        -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
-        0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5),
-        -0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5);
+@layer components {
+    .float-l {
+        @apply lg:float-left lg:mr-4 lg:mt-0 lg:w-auto;
+    }
+
+    .float-r {
+        @apply lg:float-right lg:ml-4 lg:mt-0 lg:w-auto;
+    }
+
+    button.outlined {
+        @apply text-primary-light dark:text-primary-dark bg-transparent;
+    }
+
+    button.sm {
+        @apply h-6 text-sm px-2;
+    }
+
+    button.lg {
+        @apply h-10 text-2xl px-4;
+    }
+
+    table.col-1-left {
+        td:nth-child(1) {
+            @apply text-left;
+        }
+
+        th:nth-child(1):not(.title) {
+            @apply text-left;
+        }
+    }
+
+    table.col-2-left {
+        td:nth-child(2) {
+            @apply text-left;
+        }
+
+        th:nth-child(2):not(.title) {
+            @apply text-left;
+        }
+    }
+
+    table.col-3-left {
+        td:nth-child(3) {
+            @apply text-left;
+        }
+
+        th:nth-child(3):not(.title) {
+            @apply text-left;
+        }
+    }
+
+    table.col-4-left {
+        td:nth-child(4) {
+            @apply text-left;
+        }
+
+        th:nth-child(4):not(.title) {
+            @apply text-left;
+        }
+    }
+
+    table.col-5-left {
+        td:nth-child(5) {
+            @apply text-left;
+        }
+
+        th:nth-child(5):not(.title) {
+            @apply text-left;
+        }
+    }
+
+    table.col-1-center {
+        td:nth-child(1) {
+            @apply text-center;
+        }
+
+        th:nth-child(1):not(.title) {
+            @apply text-center;
+        }
+    }
+
+    table.col-2-center {
+        td:nth-child(2) {
+            @apply text-center;
+        }
+
+        th:nth-child(2):not(.title) {
+            @apply text-center;
+        }
+    }
+
+    table.col-3-center {
+        td:nth-child(3) {
+            @apply text-center;
+        }
+
+        th:nth-child(3):not(.title) {
+            @apply text-center;
+        }
+    }
+
+    table.col-4-center {
+        td:nth-child(4) {
+            @apply text-center;
+        }
+
+        th:nth-child(4):not(.title) {
+            @apply text-center;
+        }
+    }
+
+    table.col-5-center {
+        td:nth-child(5) {
+            @apply text-center;
+        }
+
+        th:nth-child(5):not(.title) {
+            @apply text-center;
+        }
+    }
+
+    th.title {
+        @apply caption-top font-sans text-xl font-bold;
+    }
 }
 
-.text-shadow-sm {
-    text-shadow:
-        0.25rem 0.25rem 1rem black,
-        -0.25rem 0.25rem 1rem black,
-        0.25rem -0.25rem 1rem black,
-        -0.25rem -0.25rem 1rem black,
-        0 0 1rem black;
+@layer utilities {
+    .text-shadow {
+        text-shadow:
+            0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5),
+            -0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5),
+            0.25rem -0.25rem 1rem rgba(0, 0, 0, 0.5),
+            -0.25rem -0.25rem 1rem rgba(0, 0, 0, 0.5),
+            0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
+            -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
+            0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5),
+            -0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5);
+    }
+
+    .text-shadow-sm {
+        text-shadow:
+            0.25rem 0.25rem 1rem black,
+            -0.25rem 0.25rem 1rem black,
+            0.25rem -0.25rem 1rem black,
+            -0.25rem -0.25rem 1rem black,
+            0 0 1rem black;
+    }
 }
