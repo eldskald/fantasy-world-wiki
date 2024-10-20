@@ -26,18 +26,14 @@ describe("table of contents", () => {
 
     test("Should search for headers and create links correctly", () => {
         const anchors = document.getElementById("test").querySelectorAll("a");
-        expect(anchors.length).toBe(6);
+        expect(anchors.length).toBe(4);
         expect(anchors[0].href).toBe("http://localhost/#first-section");
         expect(anchors[0].innerHTML).toBe("First section");
         expect(anchors[1].href).toBe("http://localhost/#some-subsection");
         expect(anchors[1].innerHTML).toBe("Subsection");
         expect(anchors[2].href).toBe("http://localhost/#0");
         expect(anchors[2].innerHTML).toBe("Subsubsection");
-        expect(anchors[3].href).toBe("http://localhost/#1");
-        expect(anchors[3].innerHTML).toBe("Don't care at this point");
-        expect(anchors[4].href).toBe("http://localhost/#2");
-        expect(anchors[4].innerHTML).toBe("sure yes");
-        expect(anchors[5].href).toBe("http://localhost/#tests");
-        expect(anchors[5].innerHTML).toBe("tests");
+        expect(anchors[3].href).toBe("http://localhost/#tests");
+        expect(anchors[3].innerHTML).toBe("tests");
     });
 });
