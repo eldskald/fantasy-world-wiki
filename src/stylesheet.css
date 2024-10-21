@@ -58,12 +58,16 @@
 }
 
 @layer components {
-    .float-l {
+    .left-float {
         @apply lg:float-left lg:mr-4 lg:mt-0 lg:w-auto;
     }
 
-    .float-r {
+    .right-float {
         @apply lg:float-right lg:ml-4 lg:mt-0 lg:w-auto;
+    }
+
+    .note {
+        @apply bg-black bg-opacity-20 dark:bg-white dark:bg-opacity-20 shadow-black shadow-md w-full lg:w-1/2 p-4 my-2 leading-normal font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
     }
 
     button.outlined {
@@ -78,7 +82,7 @@
         @apply h-10 text-2xl px-4;
     }
 
-    table.col-1-left {
+    table.left-col-1 {
         td:nth-child(1) {
             @apply text-left;
         }
@@ -88,7 +92,7 @@
         }
     }
 
-    table.col-2-left {
+    table.left-col-2 {
         td:nth-child(2) {
             @apply text-left;
         }
@@ -98,7 +102,7 @@
         }
     }
 
-    table.col-3-left {
+    table.left-col-3 {
         td:nth-child(3) {
             @apply text-left;
         }
@@ -108,7 +112,7 @@
         }
     }
 
-    table.col-4-left {
+    table.left-col-4 {
         td:nth-child(4) {
             @apply text-left;
         }
@@ -118,7 +122,7 @@
         }
     }
 
-    table.col-5-left {
+    table.left-col-5 {
         td:nth-child(5) {
             @apply text-left;
         }
@@ -128,7 +132,7 @@
         }
     }
 
-    table.col-1-center {
+    table.center-col-1 {
         td:nth-child(1) {
             @apply text-center;
         }
@@ -138,7 +142,7 @@
         }
     }
 
-    table.col-2-center {
+    table.center-col-2 {
         td:nth-child(2) {
             @apply text-center;
         }
@@ -148,7 +152,7 @@
         }
     }
 
-    table.col-3-center {
+    table.center-col-3 {
         td:nth-child(3) {
             @apply text-center;
         }
@@ -158,7 +162,7 @@
         }
     }
 
-    table.col-4-center {
+    table.center-col-4 {
         td:nth-child(4) {
             @apply text-center;
         }
@@ -168,7 +172,7 @@
         }
     }
 
-    table.col-5-center {
+    table.center-col-5 {
         td:nth-child(5) {
             @apply text-center;
         }
