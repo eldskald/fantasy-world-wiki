@@ -10,7 +10,7 @@ export function setupPage() {
         "absolute top-12 left-0 bottom-0 right-0 overflow-scroll";
     const mainContainer = document.createElement("div");
     mainContainer.id = "main-container";
-    mainContainer.className = "min-h-screen relative";
+    mainContainer.className = "min-h-full relative";
     contentWrapper.appendChild(mainContainer);
     document.body.appendChild(contentWrapper);
 
@@ -27,7 +27,8 @@ export function setupPage() {
     // Theme switcher link
     const themeSwitcher = document.createElement("button");
     themeSwitcher.id = "theme-switcher";
-    themeSwitcher.className = "outlined border-2 rounded-full px-0";
+    themeSwitcher.className =
+        "outlined border-2 rounded-full px-0 aspect-square";
     topBar.appendChild(themeSwitcher);
 
     // Map container
