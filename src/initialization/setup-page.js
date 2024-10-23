@@ -25,9 +25,9 @@ export function setupPage() {
     topBar.appendChild(placeholder);
 
     // Theme switcher link
-    const themeSwitcher = document.createElement("a");
+    const themeSwitcher = document.createElement("button");
     themeSwitcher.id = "theme-switcher";
-    themeSwitcher.className = "cursor-pointer";
+    themeSwitcher.className = "outlined border-2 rounded-full px-0";
     topBar.appendChild(themeSwitcher);
 
     // Map container
