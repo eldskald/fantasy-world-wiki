@@ -20,7 +20,7 @@ export function detectArticle() {
     if (window.imports.articles[query]) {
         current = query;
         outer.setAttribute("data-hidden", false);
-        inner.innerHTML = window.imports.articles[query];
+        inner.innerHTML = window.imports.articles[query].data;
         return;
     }
 

@@ -75,12 +75,37 @@ describe("buildArticles", () => {
         });
     });
 
+    describe("when the article has no title", () => {
+        beforeEach(() => {
+            readFileSyncSpy.mockReturnValue("data");
+            readdirSyncSpy.mockReturnValue(["file.html"]);
+            writeFileSyncSpy.mockImplementation(() => {});
+            buildArticles(articlesPath, buildPath);
+        });
+
+        test("should not write data to any file", () => {
+            expect(writeFileSyncSpy).not.toHaveBeenCalled();
+        });
+
+        test("should log the process correctly", () => {
+            expect(writeSpy).toHaveBeenCalledWith("Building articles...");
+            expect(writeSpy).toHaveBeenCalledWith(
+                "\x1b[31m Failed \x1b[0m \n\n",
+            );
+            expect(errorSpy).toHaveBeenCalled();
+        });
+
+        test("should exit with errors", () => {
+            expect(exitSpy).toHaveBeenCalledWith(1);
+        });
+    });
+
     describe("when successful", () => {
-        let result = { path: "", data: "" };
+        let result = { path: "", data: {} };
         let expectedData = "";
 
         beforeEach(() => {
-            readFileSyncSpy.mockReturnValue("");
+            readFileSyncSpy.mockReturnValue("<h1>title</h1>data");
             readdirSyncSpy.mockReturnValue([
                 "file.html",
                 "nope.txt",
@@ -91,7 +116,11 @@ describe("buildArticles", () => {
                 result.data = data;
             });
             expectedData =
-                "export default " + JSON.stringify({ file: "", other: "" });
+                "export default " +
+                JSON.stringify({
+                    file: { title: "title", data: "<h1>title</h1>data" },
+                    other: { title: "title", data: "<h1>title</h1>data" },
+                });
             buildArticles(articlesPath, buildPath);
         });
 
