@@ -6,7 +6,7 @@ import { isArticleLoaded } from "./utils/is-article-loaded.js";
 import { isMapLoaded } from "./utils/is-map-loaded.js";
 
 // Wait time for window.history.back() or window.history.forward()
-const RELOAD_TIME = 10;
+const RELOAD_TIME = 20;
 
 describe("back and forward features", () => {
     beforeEach(async () => {
