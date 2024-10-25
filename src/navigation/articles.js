@@ -8,6 +8,8 @@ export function detectArticle() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("article");
 
+    if (params.has("menu")) return;
+
     if (query === current) return;
 
     if (query === null) {
