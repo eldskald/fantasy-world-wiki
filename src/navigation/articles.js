@@ -1,6 +1,17 @@
-import { changeSearchParam } from "./change-search-param.js";
-
 let current = "";
+
+function articleNotFound() {
+    const inner = document.getElementById("article-container-inner");
+    const container = document.createElement("div");
+    const h3 = document.createElement("h3");
+    const p = document.createElement("p");
+    container.id = "article-not-found";
+    h3.innerHTML = "404";
+    p.innerHTML = window.imports.settings.labels.articleNotFound;
+    container.appendChild(h3);
+    container.appendChild(p);
+    inner.appendChild(container);
+}
 
 export function detectArticle() {
     const outer = document.getElementById("article-container-outer");
@@ -26,8 +37,7 @@ export function detectArticle() {
         return;
     }
 
-    current = "";
-    outer.setAttribute("data-hidden", true);
-    inner.innerHTML = "";
-    changeSearchParam({ article: "" });
+    current = query;
+    outer.setAttribute("data-hidden", false);
+    articleNotFound();
 }
