@@ -2,7 +2,9 @@
     "title": "Work In Progress",
     "defaultMap": "map1",
     "labels": {
-        "closeArticle": "Close Article",
+        "closeArticle": "Close",
+        "articlesIndexLink": "Articles",
+        "mapsIndexLink": "Maps",
         "darkMode": "Dark Mode",
         "lightMode": "Light Mode",
         "tableOfContents": "Table of Contents"

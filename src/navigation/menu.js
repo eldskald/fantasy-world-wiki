@@ -47,17 +47,22 @@ function setupArticlesIndex() {
     outer.setAttribute("data-hidden", false);
     inner.innerHTML = "";
 
+    // Putting everything inside this container for test purposes
+    const container = document.createElement("dev");
+    container.id = "menu-container";
+    inner.appendChild(container);
+
     const articleHeader = document.createElement("h1");
     articleHeader.innerHTML = "Articles Index";
-    inner.appendChild(articleHeader);
+    container.appendChild(articleHeader);
 
     const index = getOrderedArticles();
     Object.keys(index).forEach((letter) => {
         const letterHeader = document.createElement("h3");
         letterHeader.innerHTML = letter;
-        inner.appendChild(letterHeader);
+        container.appendChild(letterHeader);
         const list = document.createElement("ul");
-        inner.appendChild(list);
+        container.appendChild(list);
 
         index[letter].forEach((article) => {
             const li = document.createElement("li");
@@ -77,17 +82,22 @@ function setupMapsIndex() {
     outer.setAttribute("data-hidden", false);
     inner.innerHTML = "";
 
+    // Putting everything inside this container for test purposes
+    const container = document.createElement("dev");
+    container.id = "menu-container";
+    inner.appendChild(container);
+
     const mapsHeader = document.createElement("h1");
     mapsHeader.innerHTML = "Maps Index";
-    inner.appendChild(mapsHeader);
+    container.appendChild(mapsHeader);
 
     const index = getOrderedMaps();
     Object.keys(index).forEach((letter) => {
         const letterHeader = document.createElement("h3");
         letterHeader.innerHTML = letter;
-        inner.appendChild(letterHeader);
+        container.appendChild(letterHeader);
         const list = document.createElement("ul");
-        inner.appendChild(list);
+        container.appendChild(list);
 
         index[letter].forEach((map) => {
             const li = document.createElement("li");
