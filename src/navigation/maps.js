@@ -1,8 +1,20 @@
-import { changeSearchParam } from "./change-search-param.js";
-
 const imagesPath = "./assets/images/";
 
 let current = "";
+
+function mapNotFound() {
+    const mapContainer = document.getElementById("map-container");
+    const container = document.createElement("div");
+    const h3 = document.createElement("h3");
+    const p = document.createElement("p");
+    container.id = "map-not-found";
+    container.className = "m-4";
+    h3.innerHTML = "404";
+    p.innerHTML = window.imports.settings.labels.mapNotFound;
+    container.appendChild(h3);
+    container.appendChild(p);
+    mapContainer.appendChild(container);
+}
 
 function loadMap(data) {
     const mainContainer = document.getElementById("main-container");
@@ -49,17 +61,18 @@ export function detectMap() {
     if (query === current) return;
 
     if (query === null) {
+        current = "";
         const defaultMap = window.imports.settings.defaultMap;
         loadMap(window.imports.maps[defaultMap]);
         return;
     }
 
     if (window.imports.maps[query]) {
+        current = query;
         loadMap(window.imports.maps[query]);
         return;
     }
 
-    const defaultMap = window.imports.settings.defaultMap;
-    loadMap(window.imports.maps[defaultMap]);
-    changeSearchParam({ map: "" });
+    current = query;
+    mapNotFound();
 }
