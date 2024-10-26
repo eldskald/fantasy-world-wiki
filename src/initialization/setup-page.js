@@ -21,6 +21,9 @@ function setupTopbar() {
     document.body.appendChild(topBar);
 
     // Indexes
+    const icon = document.createElement("img");
+    icon.src = "assets/icons/favicon.svg";
+    icon.className = "h-8 w-8";
     const articlesIndex = document.createElement("a");
     articlesIndex.setAttribute("tomenu", "articles-index");
     articlesIndex.innerHTML = window.imports.settings.labels.articlesIndexLink;
@@ -28,7 +31,8 @@ function setupTopbar() {
     mapsIndex.setAttribute("tomenu", "maps-index");
     mapsIndex.innerHTML = window.imports.settings.labels.mapsIndexLink;
     const navContainer = document.createElement("div");
-    navContainer.className = "flex gap-4";
+    navContainer.className = "flex gap-4 items-center";
+    navContainer.appendChild(icon);
     navContainer.appendChild(articlesIndex);
     navContainer.appendChild(mapsIndex);
     topBar.appendChild(navContainer);
