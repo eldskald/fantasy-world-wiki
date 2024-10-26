@@ -13,7 +13,7 @@ describe("anchors to articles", () => {
         test.click();
     });
 
-    test("should update search params and load map", () => {
+    test("should update search params and load map and article", () => {
         // Can't use moddedArticles.article1 here because of the aditional map
         // link after setAnchors.
         const moddedArticle = `

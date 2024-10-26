@@ -3,7 +3,7 @@ import { moddedArticles } from "./mocks/articles.js";
 import { initDom } from "./utils/init-dom.js";
 import { isArticleLoaded } from "./utils/is-article-loaded.js";
 
-describe("anchors to close article", () => {
+describe("anchors to clear hash", () => {
     beforeEach(async () => {
         const a1 = document.createElement("a");
         a1.href = "http://localhost/?article=article1#hash";

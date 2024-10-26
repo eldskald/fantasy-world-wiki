@@ -1,9 +1,4 @@
-export function setupPage() {
-    const title = document.createElement("title");
-    title.innerHTML = window.imports.settings.title;
-    document.head.appendChild(title);
-
-    // Root setup
+function setupRoot() {
     document.body.className = "overflow-hidden";
     const contentWrapper = document.createElement("main");
     contentWrapper.className =
@@ -13,16 +8,28 @@ export function setupPage() {
     mainContainer.className = "min-h-full relative";
     contentWrapper.appendChild(mainContainer);
     document.body.appendChild(contentWrapper);
+}
 
-    // Top bar
+function setupTopbar() {
     const topBar = document.createElement("header");
     topBar.className = `
         absolute top-0 left-0 right-0 h-12 bg-bg-light dark:bg-bg-dark
         shadow-black shadow-lg flex items-center justify-between px-4
     `;
     document.body.appendChild(topBar);
-    const placeholder = document.createElement("div");
-    topBar.appendChild(placeholder);
+
+    // Indexes
+    const articlesIndex = document.createElement("a");
+    articlesIndex.setAttribute("tomenu", "articles-index");
+    articlesIndex.innerHTML = window.imports.settings.labels.articlesIndexLink;
+    const mapsIndex = document.createElement("a");
+    mapsIndex.setAttribute("tomenu", "maps-index");
+    mapsIndex.innerHTML = window.imports.settings.labels.mapsIndexLink;
+    const navContainer = document.createElement("div");
+    navContainer.className = "flex gap-4";
+    navContainer.appendChild(articlesIndex);
+    navContainer.appendChild(mapsIndex);
+    topBar.appendChild(navContainer);
 
     // Theme switcher link
     const themeSwitcher = document.createElement("button");
@@ -30,14 +37,18 @@ export function setupPage() {
     themeSwitcher.className =
         "outlined border-2 rounded-full px-0 aspect-square";
     topBar.appendChild(themeSwitcher);
+}
 
-    // Map container
+function setupMapContainer() {
+    const mainContainer = document.getElementById("main-container");
     const mapContainer = document.createElement("div");
     mapContainer.id = "map-container";
     mapContainer.className = "h-full w-full";
     mainContainer.appendChild(mapContainer);
+}
 
-    // Article container
+function setupArticleContainer() {
+    const mainContainer = document.getElementById("main-container");
     const articleContainerOuter = document.createElement("div");
     articleContainerOuter.id = "article-container-outer";
     articleContainerOuter.className = `
@@ -56,7 +67,7 @@ export function setupPage() {
         "absolute top-8 bottom-0 left-0 right-0 px-4 pb-4 overflow-scroll";
     articleContainerMid.appendChild(articleContainerInner);
 
-    // Container for the close article and theme switcher
+    // Container for the close article link
     const articleControlPanel = document.createElement("div");
     articleControlPanel.className =
         "absolute top-0 left-4 right-4 h-8 flex justify-between items-center";
@@ -67,4 +78,17 @@ export function setupPage() {
     closeArticleBtn.setAttribute("toarticle", "");
     closeArticleBtn.innerHTML = window.imports.settings.labels.closeArticle;
     articleControlPanel.appendChild(closeArticleBtn);
+}
+
+export function setupPage() {
+    // Setup document head
+    const title = document.createElement("title");
+    title.innerHTML = window.imports.settings.title;
+    document.head.appendChild(title);
+
+    // Setup document body
+    setupRoot();
+    setupTopbar();
+    setupMapContainer();
+    setupArticleContainer();
 }
