@@ -1,8 +1,10 @@
 function setupRoot() {
     document.body.className = "overflow-hidden";
     const contentWrapper = document.createElement("main");
-    contentWrapper.className =
-        "absolute top-12 left-0 bottom-0 right-0 overflow-scroll";
+    contentWrapper.className = `
+        absolute top-12 left-0 bottom-0 right-0 overflow-scroll bg-bg-light
+        dark:bg-bg-dark
+    `;
     const mainContainer = document.createElement("div");
     mainContainer.id = "main-container";
     mainContainer.className = "min-h-full relative";
