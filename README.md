@@ -8,4 +8,4 @@ If you want to use it, feel free! Read [HOW_TO_MAKE_YOUR_OWN.md](HOW_TO_MAKE_YOU
 
 ## Credits
 
-Everything by [Rafael Bordoni](https://github.com/eldskald). Also thanks to [tailwindcss](https://tailwindcss.com/) for their cool framework.
+Everything by [Rafael Bordoni](https://github.com/eldskald). Also thanks to [tailwindcss](https://tailwindcss.com/) for their cool framework. I also used [Wonderdraft](https://www.wonderdraft.net/) to draw the maps.
