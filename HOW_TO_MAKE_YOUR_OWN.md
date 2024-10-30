@@ -2,13 +2,13 @@
 
 The first thing you need to do is to fork this project. Don't worry if you're not a programmer, you don't need to touch the code, although having some knowledge of HTML would be useful, the examples given here are very self explanatory and should get you started.
 
-To fork any project on GitHub, you need an account and to just push the fork button at the top of the page. 
+To fork any project on GitHub, you need an account and to just push the fork button at the top of the page.
 
 ## Editing files
 
 You can skip this section if you're a programmer and is already familiar with git.
 
-If you're not a programmer, don't worry, you don't need to download anything to edit and create files. Just click any file or folder on your fork's GitHub page and you should see an edit or create file button. After you're done with the editing, click __Commit changes__. You don't need to write a commit message, just commit your changes directly and that's it.
+If you're not a programmer, don't worry, you don't need to download anything to edit and create files. Just click any file or folder on your fork's GitHub page and you should see an edit or create file button. After you're done with the editing, click **Commit changes**. You don't need to write a commit message, just commit your changes directly and that's it.
 
 Every time you commit something, the project will automatically update your page, but it takes a couple seconds for the updates to show up.
 
@@ -28,7 +28,12 @@ The [assets/articles](assets/articles/) folder is where you will make your artic
 
 ```html
 ...
-<p>The great city of Elnoria is the largest city in the empire. Known for being a culture hub of all provinces, it attracts merchants from all over the world. It is also the home of the <a toarticle="thieves-guild">Thieves Guild</a>.</p>
+<p>
+    The great city of Elnoria is the largest city in the empire. Known for being
+    a culture hub of all provinces, it attracts merchants from all over the
+    world. It is also the home of the
+    <a toarticle="thieves-guild">Thieves Guild</a>.
+</p>
 ...
 ```
 
@@ -38,7 +43,7 @@ I suggest you look at the example articles, they're reference on how to do anyth
 
 ### Maps
 
-The [assets/maps](assets/maps/) folder is where you will put your maps. By map I mean the page with a map image and a lot of links on top of it, not the image itself. 
+The [assets/maps](assets/maps/) folder is where you will put your maps. By map I mean the page with a map image and a lot of links on top of it, not the image itself.
 
 A map is just a `.json` file with a name, an image and links. Similar to articles, the filename is what you will use to link to the map and is what will show up on the URL. Just put a `tomap="<your-map-name-here>"` on your `<a>` tags and they should link.
 
@@ -56,7 +61,7 @@ The [assets/themes/index.js] file contains data for the colorscheme and fonts of
 
 There is also font data on that file, but installing fonts is a little bit tricky.
 
-The [assets/fonts/fonts.css](assets/fonts/fonts.css) file loads fonts from services that host them, such as [Google Fonts](https://fonts.google.com). You can install from any other site that hosts free fonts, but [Google Fonts](https://fonts.google.com) is the easiest. To use it, choose a font from it and click the __Get Font__ button on the font's page. It will add it to your "cart" even though you're not shopping. You can go back to browsing and pick all the fonts you want. When you're done, click you cart then click the __Get embedded code__ button. You'll go to a page with some code for you to copy paste. Choose __@import__ and just paste the code that's between the `<style>` and `</style>` lines in your [assets/fonts/fonts.css](assets/fonts/fonts.css) file. It's usually just a single line, although a very long one depending on the fonts you picked.
+The [assets/fonts/fonts.css](assets/fonts/fonts.css) file loads fonts from services that host them, such as [Google Fonts](https://fonts.google.com). You can install from any other site that hosts free fonts, but [Google Fonts](https://fonts.google.com) is the easiest. To use it, choose a font from it and click the **Get Font** button on the font's page. It will add it to your "cart" even though you're not shopping. You can go back to browsing and pick all the fonts you want. When you're done, click you cart then click the **Get embedded code** button. You'll go to a page with some code for you to copy paste. Choose **@import** and just paste the code that's between the `<style>` and `</style>` lines in your [assets/fonts/fonts.css](assets/fonts/fonts.css) file. It's usually just a single line, although a very long one depending on the fonts you picked.
 
 Having done that, you need to put the font names on your [assets/theme/index.js](assets/theme/index.js) file. There are four fonts being used, `fancy` is for the article titles and map large and medium links, `display` font should show up on `<h3>` and `<h4>` tags on articles, used for sectioning and sub-sectioning. `sans` and `serif` are for text. `sans` shows up on small links on maps, table titles, `<h5>` and `<h6>` tags while `serif` is the main body of text on the articles.
 
