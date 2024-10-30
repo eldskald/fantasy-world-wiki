@@ -25,7 +25,7 @@ describe("back and forward features", () => {
     // update the page instantly, so we have to make this test async with short
     // delays after each call of one of them
     test("should update state whenever we press back or forward", async () => {
-        // Can't use moddedArticles.article1 here because of the aditional map
+        // Can't use moddedArticles.article1 here because of the additional map
         // link after setAnchors.
         const moddedArticle = `
         <h1>article1</h1>

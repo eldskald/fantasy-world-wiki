@@ -5,19 +5,20 @@ import { setAnchors } from "../components/anchor.js";
 import { TableOfContents } from "../components/table-of-contents.js";
 import { detectTheme } from "../components/theme-switcher.js";
 
-export function onLoadRoutine() {
-    customElements.define("table-of-contents", TableOfContents);
-
-    addEventListener("popstate", () => {
-        detectArticle();
-        detectMap();
-        detectMenu();
-        setAnchors();
-    });
-
-    detectTheme();
+function render() {
     detectArticle();
     detectMap();
     detectMenu();
     setAnchors();
+}
+
+export function onLoadRoutine() {
+    customElements.define("table-of-contents", TableOfContents);
+
+    document.body.addEventListener("rerender", render);
+
+    addEventListener("popstate", render);
+
+    detectTheme();
+    render();
 }
