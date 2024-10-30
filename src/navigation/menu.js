@@ -1,7 +1,5 @@
 import { changeSearchParam } from "./change-search-param.js";
 
-let current = "";
-
 function getOrderedArticles() {
     const articles = Object.keys(window.imports.articles).map((article) => ({
         title: window.imports.articles[article].title,
@@ -41,7 +39,6 @@ function getOrderedMaps() {
 }
 
 function setupArticlesIndex() {
-    current = "articles-index";
     const outer = document.getElementById("article-container-outer");
     const inner = document.getElementById("article-container-inner");
     outer.setAttribute("data-hidden", false);
@@ -76,7 +73,6 @@ function setupArticlesIndex() {
 }
 
 function setupMapsIndex() {
-    current = "maps-index";
     const outer = document.getElementById("article-container-outer");
     const inner = document.getElementById("article-container-inner");
     outer.setAttribute("data-hidden", false);
@@ -118,10 +114,7 @@ export function detectMenu() {
 
     if (params.has("article")) return;
 
-    if (query === current) return;
-
     if (query === null) {
-        current = "";
         outer.setAttribute("data-hidden", true);
         inner.innerHTML = "";
         return;
@@ -137,7 +130,6 @@ export function detectMenu() {
         return;
     }
 
-    current = "";
     outer.setAttribute("data-hidden", true);
     inner.innerHTML = "";
     changeSearchParam({ menu: "" });
