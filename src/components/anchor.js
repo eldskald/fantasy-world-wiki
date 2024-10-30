@@ -1,7 +1,4 @@
 import { changeSearchParam } from "../navigation/change-search-param.js";
-import { detectArticle } from "../navigation/articles.js";
-import { detectMap } from "../navigation/maps.js";
-import { detectMenu } from "../navigation/menu.js";
 
 // This is to override the default behavior of anchors (<a></a> tags). We want
 // them to not reload the page, just change search params and re-render. This
@@ -54,10 +51,7 @@ export function setAnchors() {
         a.setAttribute("href", url.toString());
         a.onclick = () => {
             changeSearchParam(newState);
-            detectArticle();
-            detectMap();
-            detectMenu();
-            setAnchors();
+            document.body.dispatchEvent(new CustomEvent("rerender"));
             return false;
         };
     });
