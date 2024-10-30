@@ -9,6 +9,7 @@
         "lightMode": "Light Mode",
         "tableOfContents": "Table of Contents",
         "articleNotFound": "Article not found",
-        "mapNotFound": "Map not found"
+        "mapNotFound": "Map not found",
+        "menuNotFound": "Menu not found"
     }
 }
