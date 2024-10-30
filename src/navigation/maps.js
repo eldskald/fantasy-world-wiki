@@ -1,7 +1,5 @@
 const imagesPath = "./assets/images/";
 
-let current = "";
-
 function mapNotFound() {
     const mapContainer = document.getElementById("map-container");
     const container = document.createElement("div");
@@ -58,21 +56,16 @@ export function detectMap() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("map");
 
-    if (query === current) return;
-
     if (query === null) {
-        current = "";
         const defaultMap = window.imports.settings.defaultMap;
         loadMap(window.imports.maps[defaultMap]);
         return;
     }
 
     if (window.imports.maps[query]) {
-        current = query;
         loadMap(window.imports.maps[query]);
         return;
     }
 
-    current = query;
     mapNotFound();
 }
