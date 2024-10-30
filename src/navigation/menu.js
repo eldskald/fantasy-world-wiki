@@ -1,4 +1,15 @@
-import { changeSearchParam } from "./change-search-param.js";
+function menuNotFound() {
+    const inner = document.getElementById("article-container-inner");
+    const container = document.createElement("div");
+    const h3 = document.createElement("h3");
+    const p = document.createElement("p");
+    container.id = "menu-not-found";
+    h3.innerHTML = "404";
+    p.innerHTML = window.imports.settings.labels.menuNotFound;
+    container.appendChild(h3);
+    container.appendChild(p);
+    inner.appendChild(container);
+}
 
 function getOrderedArticles() {
     const articles = Object.keys(window.imports.articles).map((article) => ({
@@ -130,7 +141,6 @@ export function detectMenu() {
         return;
     }
 
-    outer.setAttribute("data-hidden", true);
-    inner.innerHTML = "";
-    changeSearchParam({ menu: "" });
+    outer.setAttribute("data-hidden", false);
+    menuNotFound();
 }
