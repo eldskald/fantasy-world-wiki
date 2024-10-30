@@ -4,27 +4,27 @@
 
 @layer base {
     h1 {
-        @apply mt-8 mb-4 clear-both text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+        @apply mt-8 mb-4 clear-both text-2xl lg:text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
     }
 
     h2 {
-        @apply mt-10 mb-2 clear-both text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark border-primary-light dark:border-primary-dark border-b-2;
+        @apply mt-10 mb-2 clear-both text-2xl lg:text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark border-primary-light dark:border-primary-dark border-b-2;
     }
 
     h3 {
-        @apply mt-6 clear-both text-4xl font-display font-bold text-primary-light dark:text-primary-dark;
+        @apply mt-6 clear-both text-2xl lg:text-4xl font-display font-bold text-primary-light dark:text-primary-dark;
     }
 
     h4 {
-        @apply mt-4 text-2xl font-display font-bold text-primary-light dark:text-primary-dark;
+        @apply mt-4 text-xl lg:text-2xl font-display font-bold text-primary-light dark:text-primary-dark;
     }
 
     h5 {
-        @apply mt-4 text-2xl font-sans font-bold text-fg-light dark:text-fg-dark;
+        @apply mt-4 text-xl lg:text-2xl font-sans font-bold text-fg-light dark:text-fg-dark;
     }
 
     h6 {
-        @apply mt-4 text-2xl font-sans text-fg-light dark:text-fg-dark;
+        @apply mt-4 text-xl lg:text-2xl font-sans text-fg-light dark:text-fg-dark;
     }
 
     p {
