@@ -15,9 +15,11 @@ export async function detectArticle() {
     }
 
     outer.setAttribute("data-hidden", false);
-    inner.innerHTML = window.imports.settings.labels.loading;
+    inner.innerHTML = `<p>${window.imports.settings.labels.loading}</p>`;
     try {
-        const res = await fetch(`/assets/articles/${query}.html`);
+        const res = await fetch(
+            `${window.imports.settings.paths.articles}${query}.html`,
+        );
         if (!res.ok) {
             throw {
                 status: res.status,
@@ -27,6 +29,7 @@ export async function detectArticle() {
         inner.innerHTML = await res.text();
         setAnchors(inner.querySelectorAll("a"));
     } catch (err) {
+        inner.innerHTML = "";
         const h3 = document.createElement("h3");
         const p = document.createElement("p");
         h3.innerHTML = err.status;
