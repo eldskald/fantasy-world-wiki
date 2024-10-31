@@ -9,7 +9,6 @@ function render() {
     detectArticle();
     detectMap();
     detectMenu();
-    setAnchors();
 }
 
 export function onLoadRoutine() {
@@ -21,4 +20,5 @@ export function onLoadRoutine() {
 
     detectTheme();
     render();
+    setAnchors(document.querySelectorAll("a"));
 }

@@ -1,3 +1,5 @@
+import { setAnchors } from "../components/anchor.js";
+
 function articleNotFound() {
     const inner = document.getElementById("article-container-inner");
     const container = document.createElement("div");
@@ -28,6 +30,7 @@ export function detectArticle() {
     if (window.imports.articles[query]) {
         outer.setAttribute("data-hidden", false);
         inner.innerHTML = window.imports.articles[query].data;
+        setAnchors(inner.querySelectorAll("a"));
         return;
     }
 

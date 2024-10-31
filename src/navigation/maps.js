@@ -1,3 +1,5 @@
+import { setAnchors } from "../components/anchor.js";
+
 const imagesPath = "./assets/images/";
 
 function mapNotFound() {
@@ -50,6 +52,7 @@ function loadMap(data) {
         a.style = `top: ${link.pos.y}; left: ${link.pos.x};`;
         container.appendChild(a);
     });
+    setAnchors(container.querySelectorAll("a"));
 }
 
 export function detectMap() {
