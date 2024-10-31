@@ -61,7 +61,10 @@ describe("buildSettings", () => {
             expectedData =
                 "export default " +
                 JSON.stringify({
-                    paths: { articles: "repo/assets/articles/" },
+                    paths: {
+                        articles: "repo/assets/articles/",
+                        maps: "repo/assets/maps/",
+                    },
                 });
             buildSettings(settingsPath, buildPath);
         });

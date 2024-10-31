@@ -11,6 +11,7 @@ export function buildSettings(settingsPath, buildPath) {
         const settings = readProjectSettings(settingsPath);
         settings.paths = {
             articles: (process.env.REPO_NAME || "") + "/assets/articles/",
+            maps: (process.env.REPO_NAME || "") + "/assets/maps/",
         };
         const data = "export default " + JSON.stringify(settings);
         fs.writeFileSync(buildPath, data);
