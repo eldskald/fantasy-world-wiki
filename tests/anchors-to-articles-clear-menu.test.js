@@ -2,6 +2,9 @@ import { beforeEach, describe, expect, test } from "@jest/globals";
 import { moddedArticles } from "./mocks/articles.js";
 import { initDom } from "./utils/init-dom.js";
 import { isArticleLoaded } from "./utils/is-article-loaded.js";
+import { mockFetch } from "./utils/mock-fetch.js";
+
+mockFetch();
 
 describe("anchors to articles clear menu", () => {
     beforeEach(async () => {

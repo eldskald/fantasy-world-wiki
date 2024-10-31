@@ -6,8 +6,7 @@ import { changeSearchParam } from "../navigation/change-search-param.js";
 // `toarticle`, `tomap` and `tomenu` to move around instead of `href` so we can
 // just point to the name of the article/map and it will modify it without
 // changing the other.
-export function setAnchors() {
-    const anchors = document.querySelectorAll("a");
+export function setAnchors(anchors) {
     anchors.forEach((a) => {
         if (
             !a.hasAttribute("toarticle") &&

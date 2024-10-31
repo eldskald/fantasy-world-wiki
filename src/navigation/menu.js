@@ -1,3 +1,5 @@
+import { setAnchors } from "../components/anchor.js";
+
 function menuNotFound() {
     const inner = document.getElementById("article-container-inner");
     const container = document.createElement("div");
@@ -133,11 +135,13 @@ export function detectMenu() {
 
     if (query === "articles-index") {
         setupArticlesIndex();
+        setAnchors(inner.querySelectorAll("a"));
         return;
     }
 
     if (query === "maps-index") {
         setupMapsIndex();
+        setAnchors(inner.querySelectorAll("a"));
         return;
     }
 
