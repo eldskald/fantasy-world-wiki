@@ -2,20 +2,6 @@ import { setAnchors } from "../components/anchor.js";
 
 const imagesPath = "./assets/images/";
 
-function mapNotFound() {
-    const mapContainer = document.getElementById("map-container");
-    const container = document.createElement("div");
-    const h3 = document.createElement("h3");
-    const p = document.createElement("p");
-    container.id = "map-not-found";
-    container.className = "m-4";
-    h3.innerHTML = "404";
-    p.innerHTML = window.imports.settings.labels.mapNotFound;
-    container.appendChild(h3);
-    container.appendChild(p);
-    mapContainer.appendChild(container);
-}
-
 function loadMap(data) {
     const mainContainer = document.getElementById("main-container");
     const container = document.getElementById("map-container");
@@ -55,20 +41,33 @@ function loadMap(data) {
     setAnchors(container.querySelectorAll("a"));
 }
 
-export function detectMap() {
+export async function detectMap() {
     const params = new URLSearchParams(window.location.search);
-    const query = params.get("map");
+    const query = params.get("map") || window.imports.settings.defaultMap;
+    const container = document.getElementById("map-container");
+    container.innerHTML = `<p>${window.imports.settings.labels.loading}</p>`;
 
-    if (query === null) {
-        const defaultMap = window.imports.settings.defaultMap;
-        loadMap(window.imports.maps[defaultMap]);
-        return;
+    try {
+        const res = await fetch(
+            `${window.imports.settings.paths.maps}${query}.json`,
+        );
+        if (!res.ok) {
+            throw {
+                status: res.status,
+                message: res.statusText,
+            };
+        }
+        loadMap(await res.json());
+    } catch (err) {
+        container.innerHTML = "";
+        const inner = document.createElement("div");
+        const h3 = document.createElement("h3");
+        const p = document.createElement("p");
+        inner.className = "m-4";
+        h3.innerHTML = err.status;
+        p.innerHTML = err.message;
+        inner.appendChild(h3);
+        inner.appendChild(p);
+        container.appendChild(inner);
     }
-
-    if (window.imports.maps[query]) {
-        loadMap(window.imports.maps[query]);
-        return;
-    }
-
-    mapNotFound();
 }

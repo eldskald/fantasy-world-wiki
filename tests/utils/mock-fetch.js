@@ -1,5 +1,6 @@
 import { jest } from "@jest/globals";
 import { articles } from "../mocks/articles.js";
+import { maps } from "../mocks/maps.js";
 
 export function mockFetch() {
     window.fetch = jest.fn((url) => {
@@ -13,6 +14,16 @@ export function mockFetch() {
                 return Promise.resolve({
                     ok: true,
                     text: () => Promise.resolve(articles.article2.data),
+                });
+            case "/assets/maps/map1.json":
+                return Promise.resolve({
+                    ok: true,
+                    json: () => Promise.resolve(maps.map1),
+                });
+            case "/assets/maps/map2.json":
+                return Promise.resolve({
+                    ok: true,
+                    json: () => Promise.resolve(maps.map2),
                 });
             default:
                 return Promise.resolve({
