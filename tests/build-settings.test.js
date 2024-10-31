@@ -19,6 +19,8 @@ const writeSpy = jest
 const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => {});
 const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
+process.env = { REPO_NAME: "repo" };
+
 describe("buildSettings", () => {
     describe("when readFileSync throws an error", () => {
         beforeEach(() => {
@@ -56,7 +58,11 @@ describe("buildSettings", () => {
                 result.path = path;
                 result.data = data;
             });
-            expectedData = "export default " + JSON.stringify({});
+            expectedData =
+                "export default " +
+                JSON.stringify({
+                    paths: { articles: "repo/assets/articles/" },
+                });
             buildSettings(settingsPath, buildPath);
         });
 

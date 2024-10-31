@@ -4,4 +4,7 @@ export const settings = {
         closeArticle: "Close",
         tableOfContents: "Table of Contents",
     },
+    paths: {
+        articles: "/assets/articles/",
+    },
 };
