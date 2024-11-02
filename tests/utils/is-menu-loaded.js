@@ -10,8 +10,8 @@ export function isMenuLoaded(name) {
     expect(params.get("menu")).toBe(name);
     if (params.get("menu") !== name) check = false;
 
-    expect(inner.querySelector("#menu-container")).not.toBeNull();
-    if (inner.querySelector("#menu-container") === null) check = false;
+    expect(inner.innerHTML).toBe(name);
+    if (inner.innerHTML !== name) check = false;
 
     expect(outer.getAttribute("data-hidden")).toBe(
         name === null ? "true" : "false",

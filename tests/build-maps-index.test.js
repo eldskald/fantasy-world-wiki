@@ -5,7 +5,8 @@
 import fs from "fs";
 import process from "process";
 import { jest, describe, beforeEach, expect, test } from "@jest/globals";
-import { buildMaps } from "../scripts/build-maps.js";
+import settings from "../build/settings.js";
+import { buildMapsIndex } from "../scripts/build-maps-index.js";
 
 const mapsPath = "somedir/";
 const buildPath = "mock/file.js";
@@ -20,7 +21,7 @@ const writeSpy = jest
 const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => {});
 const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-describe("buildMaps", () => {
+describe("buildMapsIndex", () => {
     describe("when readdirSync throws an error", () => {
         beforeEach(() => {
             readFileSyncSpy.mockImplementation("");
@@ -28,7 +29,7 @@ describe("buildMaps", () => {
                 throw "mock error";
             });
             writeFileSyncSpy.mockImplementation(() => {});
-            buildMaps(mapsPath, buildPath);
+            buildMapsIndex(mapsPath, buildPath);
         });
 
         test("should not write data to any file", () => {
@@ -36,7 +37,7 @@ describe("buildMaps", () => {
         });
 
         test("should log the process correctly", () => {
-            expect(writeSpy).toHaveBeenCalledWith("Building maps...");
+            expect(writeSpy).toHaveBeenCalledWith("Building maps index...");
             expect(writeSpy).toHaveBeenCalledWith(
                 "\x1b[31m Failed \x1b[0m \n\n",
             );
@@ -55,7 +56,7 @@ describe("buildMaps", () => {
             });
             readdirSyncSpy.mockReturnValue(["file.json"]);
             writeFileSyncSpy.mockImplementation(() => {});
-            buildMaps(mapsPath, buildPath);
+            buildMapsIndex(mapsPath, buildPath);
         });
 
         test("should not write data to any file", () => {
@@ -63,7 +64,7 @@ describe("buildMaps", () => {
         });
 
         test("should log the process correctly", () => {
-            expect(writeSpy).toHaveBeenCalledWith("Building maps...");
+            expect(writeSpy).toHaveBeenCalledWith("Building maps index...");
             expect(writeSpy).toHaveBeenCalledWith(
                 "\x1b[31m Failed \x1b[0m \n\n",
             );
@@ -76,23 +77,53 @@ describe("buildMaps", () => {
     });
 
     describe("when successful", () => {
-        let result = { path: "", data: "" };
+        let result = { path: "", data: {} };
         let expectedData = "";
 
         beforeEach(() => {
-            readFileSyncSpy.mockReturnValue("{}");
+            readFileSyncSpy
+                .mockReturnValueOnce('{"name": "mock"}')
+                .mockReturnValueOnce('{"name": "some name"}')
+                .mockReturnValueOnce('{"name": "yes"}')
+                .mockReturnValueOnce('{"name": "no"}');
             readdirSyncSpy.mockReturnValue([
                 "file.json",
                 "nope.txt",
-                "other.json",
+                "map.json",
+                "cool.json",
+                "last.json",
             ]);
             writeFileSyncSpy.mockImplementation((path, data) => {
                 result.path = path;
                 result.data = data;
             });
-            expectedData =
-                "export default " + JSON.stringify({ file: {}, other: {} });
-            buildMaps(mapsPath, buildPath);
+            expectedData = `<h1>${settings.labels.mapsIndex}</h1>
+<h3>M</h3>
+<ul>
+<li>
+<a tomap="file">mock</a>
+</li>
+</ul>
+<h3>N</h3>
+<ul>
+<li>
+<a tomap="last">no</a>
+</li>
+</ul>
+<h3>S</h3>
+<ul>
+<li>
+<a tomap="map">some name</a>
+</li>
+</ul>
+<h3>Y</h3>
+<ul>
+<li>
+<a tomap="cool">yes</a>
+</li>
+</ul>
+`;
+            buildMapsIndex(mapsPath, buildPath);
         });
 
         test("should generate data correctly", () => {
@@ -104,7 +135,7 @@ describe("buildMaps", () => {
         });
 
         test("should log the process correctly", () => {
-            expect(writeSpy).toHaveBeenCalledWith("Building maps...");
+            expect(writeSpy).toHaveBeenCalledWith("Building maps index...");
             expect(writeSpy).toHaveBeenCalledWith(
                 "\x1b[32m Success \x1b[0m \n",
             );

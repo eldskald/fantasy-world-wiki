@@ -4,12 +4,12 @@
     "labels": {
         "closeArticle": "Close",
         "articlesIndexLink": "Articles",
+        "articlesIndex": "Articles Index",
         "mapsIndexLink": "Maps",
+        "mapsIndex": "Maps Index",
         "darkMode": "Dark Mode",
         "lightMode": "Light Mode",
         "tableOfContents": "Table of Contents",
-        "loading": "Loading...",
-        "mapNotFound": "Map not found",
-        "menuNotFound": "Menu not found"
+        "loading": "Loading..."
     }
 }

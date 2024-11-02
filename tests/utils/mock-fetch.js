@@ -25,6 +25,16 @@ export function mockFetch() {
                     ok: true,
                     json: () => Promise.resolve(maps.map2),
                 });
+            case "/build/menu/articles-index.html":
+                return Promise.resolve({
+                    ok: true,
+                    text: () => Promise.resolve("articles-index"),
+                });
+            case "/build/menu/maps-index.html":
+                return Promise.resolve({
+                    ok: true,
+                    text: () => Promise.resolve("maps-index"),
+                });
             default:
                 return Promise.resolve({
                     ok: false,

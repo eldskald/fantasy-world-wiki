@@ -1,6 +1,9 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { initDom } from "./utils/init-dom.js";
 import { isMenuLoaded } from "./utils/is-menu-loaded.js";
+import { mockFetch } from "./utils/mock-fetch.js";
+
+mockFetch();
 
 describe("anchors to menu", () => {
     beforeEach(async () => {

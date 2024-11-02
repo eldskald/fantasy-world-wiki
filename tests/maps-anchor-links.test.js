@@ -1,12 +1,53 @@
 import { describe, expect, test } from "@jest/globals";
-import maps from "../build/maps.js";
-import articles from "../build/articles.js";
+import fs from "fs";
+
+function getAllMapContents(mapsPath) {
+    let files = fs.readdirSync(mapsPath);
+    files = files.filter((file) => file.split(".").at(-1) === "json");
+    const maps = [];
+    files.forEach((file) => {
+        maps.push({
+            name: file.slice(0, -5),
+            table: JSON.parse(
+                fs.readFileSync(mapsPath + file, {
+                    encoding: "utf8",
+                }),
+            ),
+        });
+    });
+    return maps;
+}
+
+// Returns an object that's like an unordered list, each key is a map name
+// with an unimportant value, it's just so we can use the `in` operator to
+// check if a certain name is in the list;
+function getMapList(mapsPath) {
+    let files = fs.readdirSync(mapsPath);
+    files = files.filter((file) => file.split(".").at(-1) === "json");
+    const list = {};
+    files.forEach((file) => {
+        list[file.slice(0, -5)] = true;
+    });
+    return list;
+}
+
+// Returns an object that's like an unordered list, each key is an article name
+// with an unimportant value, it's just so we can use the `in` operator to
+// check if a certain name is in the list;
+function getArticleList(articlesPath) {
+    let files = fs.readdirSync(articlesPath);
+    files = files.filter((file) => file.split(".").at(-1) === "html");
+    const list = {};
+    files.forEach((file) => {
+        list[file.slice(0, -5)] = true;
+    });
+    return list;
+}
 
 describe("maps anchor links", () => {
-    const scenarios = Object.entries(maps).map((entry) => ({
-        name: entry[0],
-        table: entry[1],
-    }));
+    const articles = getArticleList("assets/articles/");
+    const maps = getMapList("assets/maps/");
+    const scenarios = getAllMapContents("assets/maps/");
 
     describe.each(scenarios)("$name", ({ table }) => {
         test("should have name, image and links", () => {
@@ -34,10 +75,12 @@ describe("maps anchor links", () => {
             if (!link.pos) linksWithoutPos.push(link.name);
             else if (!link.pos.x || !link.pos.y)
                 linksWithBadPos.push(link.name);
-            if (link.toarticle && !Object.hasOwn(articles, link.toarticle))
+            if (link.toarticle && !(link.toarticle in articles)) {
                 linksWithBrokenToArticle.push(link.name);
-            if (link.tomap && !Object.hasOwn(maps, link.tomap))
+            }
+            if (link.tomap && !(link.tomap in maps)) {
                 linksWithBrokenToMap.push(link.name);
+            }
         });
 
         test("links should have name", () => {

@@ -1,5 +1,0 @@
-#!/usr/bin/env node
-
-import { buildArticles } from "../scripts/build-articles.js";
-
-buildArticles("assets/articles/", "build/articles.js");

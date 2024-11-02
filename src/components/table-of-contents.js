@@ -6,7 +6,7 @@ export class TableOfContents extends HTMLElement {
     connectedCallback() {
         const headers = this.parentElement.querySelectorAll("h2, h3, h4");
         const tocHeader = document.createElement("h3");
-        tocHeader.innerHTML = window.imports.settings.labels.tableOfContents;
+        tocHeader.innerHTML = window.settings.labels.tableOfContents;
         this.appendChild(tocHeader);
         const list = document.createElement("ul");
         this.appendChild(list);
