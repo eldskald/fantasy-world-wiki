@@ -64,6 +64,7 @@ describe("buildSettings", () => {
                     paths: {
                         articles: "repo/assets/articles/",
                         maps: "repo/assets/maps/",
+                        menu: "repo/build/menu/",
                     },
                 });
             buildSettings(settingsPath, buildPath);

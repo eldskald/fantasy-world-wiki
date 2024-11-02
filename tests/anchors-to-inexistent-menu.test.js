@@ -1,7 +1,10 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { initDom } from "./utils/init-dom.js";
+import { mockFetch } from "./utils/mock-fetch.js";
 
-describe("anchors to inexistent article", () => {
+mockFetch();
+
+describe("anchors to inexistent menu", () => {
     beforeEach(async () => {
         const test = document.createElement("a");
         test.setAttribute("tomenu", "nope");
@@ -10,7 +13,13 @@ describe("anchors to inexistent article", () => {
     });
 
     test("should update search params and load 404 message", () => {
-        const inner = document.getElementById("article-container-inner");
-        expect(inner.querySelector("#menu-not-found")).not.toBeNull();
+        const contents = document.getElementById(
+            "article-container-inner",
+        ).children;
+        expect(contents.length).toBe(2);
+        expect(contents[0].tagName).toBe("H3");
+        expect(contents[0].innerHTML).toBe("404");
+        expect(contents[1].tagName).toBe("P");
+        expect(contents[1].innerHTML).toBe("File not found.");
     });
 });

@@ -43,14 +43,12 @@ function loadMap(data) {
 
 export async function detectMap() {
     const params = new URLSearchParams(window.location.search);
-    const query = params.get("map") || window.imports.settings.defaultMap;
+    const query = params.get("map") || window.settings.defaultMap;
     const container = document.getElementById("map-container");
-    container.innerHTML = `<p>${window.imports.settings.labels.loading}</p>`;
+    container.innerHTML = `<p>${window.settings.labels.loading}</p>`;
 
     try {
-        const res = await fetch(
-            `${window.imports.settings.paths.maps}${query}.json`,
-        );
+        const res = await fetch(`${window.settings.paths.maps}${query}.json`);
         if (!res.ok) {
             throw {
                 status: res.status,

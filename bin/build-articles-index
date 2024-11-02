@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+import { buildArticlesIndex } from "../scripts/build-articles-index.js";
+
+buildArticlesIndex("assets/articles/", "build/menu/articles-index.html");

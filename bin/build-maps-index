@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+import { buildMapsIndex } from "../scripts/build-maps-index.js";
+
+buildMapsIndex("assets/maps/", "build/menu/maps-index.html");

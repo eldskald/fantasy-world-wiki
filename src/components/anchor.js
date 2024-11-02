@@ -38,7 +38,7 @@ export function setAnchors(anchors) {
 
         if (a.hasAttribute("tomap")) {
             const map = a.getAttribute("tomap");
-            if (map === window.imports.settings.defaultMap || map === "") {
+            if (map === window.settings.defaultMap || map === "") {
                 newState.map = "";
                 url.searchParams.delete("map");
             } else {

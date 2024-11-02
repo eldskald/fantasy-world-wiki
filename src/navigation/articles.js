@@ -15,10 +15,10 @@ export async function detectArticle() {
     }
 
     outer.setAttribute("data-hidden", false);
-    inner.innerHTML = `<p>${window.imports.settings.labels.loading}</p>`;
+    inner.innerHTML = `<p>${window.settings.labels.loading}</p>`;
     try {
         const res = await fetch(
-            `${window.imports.settings.paths.articles}${query}.html`,
+            `${window.settings.paths.articles}${query}.html`,
         );
         if (!res.ok) {
             throw {

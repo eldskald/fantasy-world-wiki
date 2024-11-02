@@ -26,10 +26,10 @@ function setupTopbar() {
     icon.className = "h-8 w-8";
     const articlesIndex = document.createElement("a");
     articlesIndex.setAttribute("tomenu", "articles-index");
-    articlesIndex.innerHTML = window.imports.settings.labels.articlesIndexLink;
+    articlesIndex.innerHTML = window.settings.labels.articlesIndexLink;
     const mapsIndex = document.createElement("a");
     mapsIndex.setAttribute("tomenu", "maps-index");
-    mapsIndex.innerHTML = window.imports.settings.labels.mapsIndexLink;
+    mapsIndex.innerHTML = window.settings.labels.mapsIndexLink;
     const navContainer = document.createElement("div");
     navContainer.className = "flex gap-4 items-center";
     navContainer.appendChild(icon);
@@ -82,14 +82,14 @@ function setupArticleContainer() {
     // Close article link
     const closeArticleBtn = document.createElement("a");
     closeArticleBtn.setAttribute("toarticle", "");
-    closeArticleBtn.innerHTML = window.imports.settings.labels.closeArticle;
+    closeArticleBtn.innerHTML = window.settings.labels.closeArticle;
     articleControlPanel.appendChild(closeArticleBtn);
 }
 
 export function setupPage() {
     // Setup document head
     const title = document.createElement("title");
-    title.innerHTML = window.imports.settings.title;
+    title.innerHTML = window.settings.title;
     document.head.appendChild(title);
 
     // Setup document body

@@ -7,5 +7,6 @@ export const settings = {
     paths: {
         articles: "/assets/articles/",
         maps: "/assets/maps/",
+        menu: "/build/menu/",
     },
 };
