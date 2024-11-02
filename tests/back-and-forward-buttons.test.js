@@ -5,6 +5,7 @@ import { initDom } from "./utils/init-dom.js";
 import { isArticleLoaded } from "./utils/is-article-loaded.js";
 import { isMapLoaded } from "./utils/is-map-loaded.js";
 import { mockFetch } from "./utils/mock-fetch.js";
+import { sleep } from "./utils/sleep.js";
 
 mockFetch();
 
@@ -40,22 +41,22 @@ describe("back and forward features", () => {
         );
         expect(isMapLoaded(null, maps["map1"])).toBe(true);
         window.history.back();
-        await new Promise((r) => setTimeout(r, RELOAD_TIME));
+        await sleep(RELOAD_TIME);
 
         expect(isArticleLoaded("article1", moddedArticle)).toBe(true);
         expect(isMapLoaded("map2", maps["map2"])).toBe(true);
         window.history.back();
-        await new Promise((r) => setTimeout(r, RELOAD_TIME));
+        await sleep(RELOAD_TIME);
 
         expect(isArticleLoaded(null, "")).toBe(true);
         expect(isMapLoaded(null, maps["map1"])).toBe(true);
         window.history.forward();
-        await new Promise((r) => setTimeout(r, RELOAD_TIME));
+        await sleep(RELOAD_TIME);
 
         expect(isArticleLoaded("article1", moddedArticle)).toBe(true);
         expect(isMapLoaded("map2", maps["map2"])).toBe(true);
         window.history.forward();
-        await new Promise((r) => setTimeout(r, RELOAD_TIME));
+        await sleep(RELOAD_TIME);
 
         expect(isArticleLoaded("article2", moddedArticles["article2"])).toBe(
             true,
