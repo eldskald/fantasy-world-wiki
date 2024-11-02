@@ -7,7 +7,7 @@ import { mockFetch } from "./utils/mock-fetch.js";
 
 mockFetch();
 
-describe("anchors to articles", () => {
+describe("anchors to both article and map", () => {
     beforeEach(async () => {
         const test = document.createElement("a");
         test.setAttribute("toarticle", "article1");

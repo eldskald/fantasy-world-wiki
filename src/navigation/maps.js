@@ -2,6 +2,8 @@ import { setAnchors } from "../components/anchor.js";
 
 const imagesPath = "./assets/images/";
 
+let current = "";
+
 function loadMap(data) {
     const mainContainer = document.getElementById("main-container");
     const container = document.getElementById("map-container");
@@ -45,8 +47,11 @@ export async function detectMap() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("map") || window.settings.defaultMap;
     const container = document.getElementById("map-container");
-    container.innerHTML = `<p>${window.settings.labels.loading}</p>`;
 
+    if (query === current) return;
+
+    current = query;
+    container.innerHTML = `<p>${window.settings.labels.loading}</p>`;
     try {
         const res = await fetch(`${window.settings.paths.maps}${query}.json`);
         if (!res.ok) {
