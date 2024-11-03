@@ -14,7 +14,8 @@
         "build:settings": "./bin/build-settings",
         "build:articles-index": "./bin/build-articles-index",
         "build:maps-index": "./bin/build-maps-index",
-        "build": "rm -rf build/ && mkdir build && mkdir build/menu && npm run build:tailwindcss && npm run build:settings && npm run build:articles-index && npm run build:maps-index",
+        "build:credits": "./bin/build-credits",
+        "build": "rm -rf build/ && mkdir build && mkdir build/menu && npm run build:tailwindcss && npm run build:settings && npm run build:articles-index && npm run build:maps-index && npm run build:credits",
         "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
     },
     "devDependencies": {

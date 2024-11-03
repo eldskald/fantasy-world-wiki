@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+import { buildCredits } from "../scripts/build-credits.js";
+
+buildCredits("assets/credits/index.html", "build/menu/credits.html");

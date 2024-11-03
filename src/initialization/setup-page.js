@@ -37,6 +37,14 @@ function setupTopbar() {
     navContainer.appendChild(mapsIndex);
     topBar.appendChild(navContainer);
 
+    // Credits
+    if (window.settings.enableCreditsPage) {
+        const credits = document.createElement("a");
+        credits.setAttribute("tomenu", "credits");
+        credits.innerHTML = window.settings.labels.creditsLink;
+        navContainer.appendChild(credits);
+    }
+
     // Theme switcher link
     const themeSwitcher = document.createElement("button");
     themeSwitcher.id = "theme-switcher";
