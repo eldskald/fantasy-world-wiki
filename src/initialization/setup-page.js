@@ -98,7 +98,11 @@ export function setupPage() {
     // Setup document head
     const title = document.createElement("title");
     title.innerHTML = window.settings.title;
+    const icon = document.createElement("link");
+    icon.rel = "icon";
+    icon.href = `assets/icons/${window.settings.icon}`;
     document.head.appendChild(title);
+    document.head.appendChild(icon);
 
     // Setup document body
     setupRoot();

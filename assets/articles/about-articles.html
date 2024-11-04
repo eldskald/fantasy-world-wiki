@@ -1,0 +1,77 @@
+<h1>About Articles</h1>
+<p>
+    This article is here to explain some basic functionalities about articles.
+</p>
+<table-of-contents></table-of-contents>
+<h2 id="article-file-names-and-titles">Article file names and titles</h2>
+<p>
+    When you upload your articles, to update your page with them we will scan them for their titles. <em>The title is
+        assumed to be whatever is inside the <code>h1</code> header tag.</em> This title will be used on the <a
+        tomenu="articles-index">articles index</a> page. You can access it to see all articles of your page listed, and
+    every entry has the text inside its <code>h1</code> tag. <em>This means that having one <code>h1</code> header
+        inside every article is obligatory.</em> It doesn't need to be the first tag, it can be anywhere on the article
+    and you can even have more than one if you want to, but I think it would look ugly and confusing. You can see <a
+        toarticle="images-example">this article</a> for an example of an article whose first tag isn't an
+    <code>h1</code> tag.
+</p>
+<p>
+    Lastly, the filename you choose is also important. <em>It will be the URL for your article and the name you'll to
+        link to it.</em> You might have noticed how navigating through maps and articles changes the URL. Whatever is
+    after the <em>article=</em> part on your URL is the article filename for the article you are currently reading,
+    without the <em>.html</em> extension of course. It is also the name you will use on links, see next session.
+</p>
+<h2 id="about-links">About links</h2>
+<p>
+    You might have noticed that links use an <code>a</code> tag. It stands for anchor. If you want to link to an
+    article, give it a <em>toarticle</em> attribute with the filename of the article you want to link to and it should
+    work. Similarly for maps, a <em>tomap</em> attribute with the filename of the map you're trying to link to should
+    work. You can link to both an article and a map too.
+</p>
+<p>
+    If you haven't found links like this already, <a toarticle="about-articles">here</a> is a link to this same article
+    so clicking it should do nothing, and <a tomap="map2">here</a> is a link to map two. You can put links to external
+    websites as well, like <a href="https://github.com/eldskald/fantasy-world-wiki" target="_blank">this link to the
+        project repository</a>. You can just copy this syntax and replace the URL on the <em>href</em> attribute for the
+    URL you want to link to.
+</p>
+<h2 id="about-the-table-of-contents">About the table of contents</h2>
+<p>
+    You might have noticed every article has a table of contents at the beginning. You have to put it there, it's the
+    <code>table-of-contents</code> tag that's on every article's source file. You can just copy that line and put it
+    wherever you want the table of contents to be in.
+</p>
+<p>
+    The way it works is that it will scan your entire article for <code>h2</code>, <code>h3</code> and <code>h4</code>
+    tags and list them, the text inside the tags is what will be listed in the table of contents. If you click any link
+    in it, it will scroll directly to this section in the article. Also, look at what happens to your URL. You will see
+    a <em>#section-name</em> added to the end of it. This text is the <em>id</em> of the tag. You don't need an
+    <em>id</em> on every header, but only those with one can be linked to and as the name suggests, <em>every id must be
+        unique</em>. Any header of types <code>h2</code>, <code>h3</code> and <code>h4</code> without <em>id</em>s will
+    that get scanned by the table of contents will be given a number as an <em>id</em> so its links can scroll to it.
+</p>
+<p>
+    You can completely ignore and give no <em>id</em>s to your headers, everything will still work as normal. I just put
+    <em>id</em>s in all of them so all of my URLs look prettier and human-readable. Otherwise, the URLs will have
+    numbers in them instead of whatever I wrote for the <em>id</em>. You click around these links and experiment, don't
+    be afraid to mess around.
+</p>
+<h2 id="about-html">About HTML</h2>
+<p>
+    Lastly, you might have noticed that articles are written in HTML. If you don't know what that is, that's fine. Some
+    of you might recognize some of this syntax from using old forums, and that's exactly what it is. Everything is
+    written inside these <code>&lt;tag-name&gt;contents&lt;/tag-name&gt;</code> tags, and tags can contain tags as well.
+    The <code>p</code> tag stands for paragraph while the <code>h</code> tags stands for headers, the lower the number
+    the more important the header, so <code>h1</code> header is the biggest header while the <code>h6</code> header is
+    the lowest.
+</p>
+<p>
+    Most of your articles will be just paragraphs and header tags, with the ocasional <code>img</code> tag for images
+    (more on images <a toarticle="images-example">here</a>) and other tags for tables and notes (see <a
+        toarticle="tables-example">here</a> for tables and <a toarticle="notes-example">here</a> for notes), as well as
+    <code>ul</code> or <code>ol</code> for lists (more about lists <a
+        href="https://www.w3schools.com/html/html_lists.asp" target="_blank">here</a>).
+</p>
+<p>
+    In case none of these are what you're looking for, I'd recommend looking into <a
+        href="https://www.w3schools.com/html/" target="_blank">this page</a> to learn more about HTML.
+</p>

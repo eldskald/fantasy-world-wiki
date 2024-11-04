@@ -6,6 +6,7 @@ export default {
         "./index.html",
         "./src/**/*.{html,js}",
         "./assets/articles/*.html",
+        "./assets/credits/index.html",
     ],
     theme: {
         extend: {

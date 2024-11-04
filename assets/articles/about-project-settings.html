@@ -1,0 +1,56 @@
+<h1>About Project Settings</h1>
+<p>
+    This article is meant to explain the <code>project-settings.json</code> file. It's a JSON file with some settings
+    about the project, mostly it contains all the text in the webpage that isn't in an article/map you wrote (like the
+    links on the top bar) to allow you to edit them.
+</p>
+<table-of-contents></table-of-contents>
+<h2 id="title-and-icon">Title and ion</h2>
+<p>
+    The <em>title</em> field is the title of the whole webpage, you know, the one that shows up on your browser's tab
+    side by side with an icon. That icon by the way is the one at <code>assets/icons/favicon.svg</code>, set by the
+    <em>icon</em> field, and it also shows up on the navbar with the index links. You put any icon on the
+    <code>assets/icon</code> folder and write its name on this field and it should show up as your site's icon.
+</p>
+<h2 id="default-map">Default map</h2>
+<p>
+    The <em>defaultMap</em> entry is the initial map that loads in when you enter the page. Treat it like any other
+    <code>a</code> tag with a <em>tomap</em> attribute, just put the name of the map (the filename without the
+    <code>.json</code>) and it will become your main/default map to load into.
+</p>
+<h2 id="enable-credits-page">Enable credits page</h2>
+<p>
+    The <em>enableCreditsPage</em> field is the only one whose value isn't contained by quotation marks, be careful with
+    it. It does exactly what it says. If you put <code>false</code> in it, it removes the credits link on the navbar and
+    won't read from the <a tomenu="credits">credits</a> file at <code>assets/credits/index.html</code>. Do it if you
+    don't need to put credits to anyone and you don't want to distract your readers with anything. Usually people put
+    art in their pages that require credits, this is what this page is mainly for.
+</p>
+<h2 id="labels">Labels</h2>
+<p>
+    The <em>labels</em> field is a list of a bunch of labels on the rest of the site that you can't change from articles
+    or maps. To give you full control of your own site, I needed to allow you to change those labels too, and this is
+    what this entry is for. You don't need to change them, it won't really impact the usability of your page unless your
+    page is written in a different language. Translations are probably the most common usecase for changing these. If
+    you want to translate them, feel free to do so. Just change the values, don't touch the name of the fields
+    themselves and don't forget the double quotes and commas on the right places.
+</p>
+<h2 id="about-json">About JSON</h2>
+<p>
+    Lastly, I wanted to talk about JSON. If you have never seen this file type, don't worry. I'm just writing this
+    section here because they are very easy to mess up and might be a source of frustration with your settings not
+    loading. <em>Every field name needs to be inside quotation marks</em>, and if you forget to close a quotation mark,
+    your settings won't load. Same thing for the value of each field, except for the <em>enableCreditsPage</em> value.
+</p>
+<p>
+    Also, <em>after every pair of field/value, there must be a comma except after the last one</em>. You can see that
+    after the name and the image, there is a comma. Forgetting that comma will break your settings. There is an
+    exception though, which is the last entry. <em>After the last entry, there must not be a comma</em> and putting one
+    there will break your settings.
+</p>
+<p>
+    The easiest way to keep everything working is just copy paste this file and only change the values inside the double
+    quotes, don't touch anything else. If your settings break, come to this repository and compare your settings file to
+    the one here. If you can't find what's wrong, try remaking it from scratch by copy pasting the one here. Change each
+    value one by one, only moving to the next after you can see that the current setting files work in your page.
+</p>

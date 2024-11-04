@@ -11,7 +11,7 @@ function loadMap(data) {
     const img = document.createElement("img");
     img.src = imagesPath + data.image;
     img.alt = data.name;
-    img.className = "h-full w-full absolute";
+    img.className = "h-full w-full absolute my-0";
     img.onload = () => {
         const ratio = img.naturalWidth / img.naturalHeight;
         mainContainer.style = `aspect-ratio: ${ratio}`;

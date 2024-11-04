@@ -6,7 +6,7 @@ Just `node`. It's useful to have `python` too if you want to serve the file on l
 
 ## Tech specs
 
-This is purely a frontend, built with no javascript framework. The [package.json](package.json) file shows only dev dependencies, which are only `eslint` and `prettier` for linting and formatting, `jest` for testing and `tailwindcss` as the closest thing to a framework or dependency. We're not using `webpack` either, but we technically have a build step not only for tailwind, but to run our custom scripts to detect articles, maps and settings.
+This is purely a frontend, built with no javascript framework. The [package.json](package.json) file shows only dev dependencies, which are only `eslint` and `prettier` for linting and formatting, `jest` for testing and `tailwindcss` as the closest thing to a framework or dependency. We're not using `webpack`, `vite` or any build tool either, but we technically have a build step not only for tailwind, but to run our custom scripts to detect articles, maps and settings.
 
 ## Getting started
 
@@ -49,8 +49,8 @@ It's meant to be an SPA, with state entirely kept as query strings. If an articl
 
 This is so your players can share links and you will see exactly what they are seeing when they give you a link, as state is entirely on the URL without compromising the SPA experience for smoother navigation.
 
-All articles and maps are loaded in memory as huge hashtables. This makes it faster to load them when you navigate, but it occupies more space in memory. I don't think it's a problem because it's all text, which shouldn't occupy a lot of memory unless you have tons of super long articles. If it ever becomes a problem I can make it so we call a request to `assets/articles` and `assets/maps` instead of loading everything, but right now I think loading everything makes for a smoother experience.
+All articles and maps are fetched directly from the GitHub Pages server, straight from the `assets/` directory. Articles are HTML files and maps are JSON files. As I stated before, this project uses `tailwindcss` for styling and it also scans the articles and credits pages at `assets/`, so if you can use `tailwindcss` on your HTML files and it will show up after deploying.
 
 ## Deploy
 
-It is done automatically through Github Actions and Github Pages.
+It is done automatically through Github Actions and Github Pages. As stated before, we have a few build scripts and the `tailwindcss` build step. Our custom scripts will basically scan articles and maps to create the index pages, as well as copy the credits page to the build directory so it can be fetched like other menus.
