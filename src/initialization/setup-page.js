@@ -91,6 +91,7 @@ function setupArticleContainer() {
     const closeArticleBtn = document.createElement("a");
     closeArticleBtn.setAttribute("toarticle", "");
     closeArticleBtn.innerHTML = window.settings.labels.closeArticle;
+    closeArticleBtn.className = "text-lg font-sans";
     articleControlPanel.appendChild(closeArticleBtn);
 }
 
