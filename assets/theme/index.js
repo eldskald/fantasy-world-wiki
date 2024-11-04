@@ -7,10 +7,10 @@ const theme = {
         "bg-dark": "#303030",
     },
     fonts: {
-        fancy: ['"Bebas Neue"'],
-        display: ['"Bebas Neue"'],
-        sans: ['"Oswald"'],
-        serif: ['"Merriweather"'],
+        fancy: ['"Eagle Lake"'],
+        display: ['"Eagle Lake"'],
+        sans: ['"Spectral SC"'],
+        serif: ['"Spectral"'],
     },
 };
 

@@ -9,6 +9,7 @@ export class TableOfContents extends HTMLElement {
         tocHeader.innerHTML = window.settings.labels.tableOfContents;
         this.appendChild(tocHeader);
         const list = document.createElement("ul");
+        list.className = "font-sans text-xl";
         this.appendChild(list);
         let id = 0;
         headers.forEach((header) => {
@@ -18,9 +19,9 @@ export class TableOfContents extends HTMLElement {
             a.href = `#${header.id}`;
             a.innerHTML = header.innerHTML;
             if (header.tagName === "H3") {
-                a.className = "font-sans ml-4";
+                a.className = "ml-4";
             } else if (header.tagName === "H4") {
-                a.className = "font-sans ml-8";
+                a.className = "ml-8";
             }
             li.appendChild(a);
             list.appendChild(li);
