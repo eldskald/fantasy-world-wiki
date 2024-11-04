@@ -1,33 +1,50 @@
 {
-    "name": "Map One",
+    "name": "Example Map One",
     "image": "map1.png",
     "links": [
         {
-            "name": "Test Article",
+            "name": "Example Map One",
             "size": "large",
-            "toarticle": "test",
+            "toarticle": "example",
             "pos": {
-                "x": "37%",
-                "y": "25%"
+                "x": "50%",
+                "y": "12%"
             }
         },
         {
-            "name": "Another Test",
+            "name": "Island of Mists",
             "size": "medium",
-            "tomap": "map2",
+            "toarticle": "example",
+            "pos": {
+                "x": "20%",
+                "y": "17%"
+            }
+        },
+        {
+            "name": "Land of Examplars",
+            "size": "medium",
+            "toarticle": "example",
+            "pos": {
+                "x": "38%",
+                "y": "50%"
+            }
+        },
+        {
+            "name": "Example Continent",
+            "size": "medium",
+            "toarticle": "example",
             "pos": {
                 "x": "70%",
-                "y": "60%"
+                "y": "54%"
             }
         },
         {
-            "name": "Test Article Small",
+            "name": "To Example Map Two",
             "size": "small",
             "tomap": "map2",
-            "toarticle": "test",
             "pos": {
-                "x": "33%",
-                "y": "33%"
+                "x": "90%",
+                "y": "8%"
             }
         }
     ]

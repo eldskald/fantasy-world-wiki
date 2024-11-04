@@ -1,33 +1,50 @@
 {
-    "name": "Map Two",
-    "image": "map1.png",
+    "name": "Example Map Two",
+    "image": "map2.png",
     "links": [
         {
-            "name": "Test Article",
+            "name": "Example Map Two",
             "size": "large",
-            "toarticle": "test",
+            "toarticle": "example",
             "pos": {
-                "x": "40%",
-                "y": "30%"
+                "x": "50%",
+                "y": "41%"
             }
         },
         {
-            "name": "Another Test",
+            "name": "Exemplary Plains",
             "size": "medium",
-            "tomap": "map1",
+            "toarticle": "example",
             "pos": {
-                "x": "66%",
-                "y": "54%"
+                "x": "32%",
+                "y": "52%"
             }
         },
         {
-            "name": "Test Article Small",
+            "name": "Woods of Ex'Emple",
+            "size": "medium",
+            "toarticle": "example",
+            "pos": {
+                "x": "70%",
+                "y": "58%"
+            }
+        },
+        {
+            "name": "Bones of the Earth",
+            "size": "medium",
+            "toarticle": "example",
+            "pos": {
+                "x": "60%",
+                "y": "23%"
+            }
+        },
+        {
+            "name": "To Example Map One",
             "size": "small",
             "tomap": "map1",
-            "toarticle": "test",
             "pos": {
-                "x": "30%",
-                "y": "40%"
+                "x": "10%",
+                "y": "8%"
             }
         }
     ]

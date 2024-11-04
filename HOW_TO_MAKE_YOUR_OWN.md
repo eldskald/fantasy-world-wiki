@@ -55,7 +55,7 @@ Again, look at the example maps for reference.
 
 ### Theme
 
-The [assets/themes/index.js] file contains data for the colorscheme and fonts of your site. You can put any color hexcode on those color fields. `fg` stands for foreground, it's used for text. `bg` stands for background, it's the color of the background of the article popup and the topbar. `dark` and `light` refer to if it's dark theme or light theme. Finally, the `primary` colors are the colors that show up on article titles, link colors, map links, etc.
+The [assets/themes/index.js] file contains data for the colorscheme and fonts of your site. You can put any color hexcode on those color fields. `fg` stands for foreground, it's used for text. `bg` stands for background, it's the color of the background of the article popup and the topbar. `dark` and `light` refer to if it's dark theme or light theme. Finally, the `primary` color shows up on article titles, link colors, map links, etc.
 
 #### Installing new fonts
 
@@ -67,8 +67,8 @@ Having done that, you need to put the font names on your [assets/theme/index.js]
 
 ### For developers
 
-See the [HACKING.md](HACKING.md) file for more technical data on how to customize your fork even further.
+See the [HACKING.md](HACKING.md) file for more technical information on how to customize your fork even further.
 
 ### Wrapping up
 
-That's it, really. You can send me an email in case anything breaks and you don't know what to do.
+That's it, really. You can send me an email in case anything breaks and you don't know what to do. If you have a page working, I recommend going over the articles on this project at [here](https://eldskald.github.io/fantasy-world-wiki) to get more detail on how to write articles, maps and customize everything.

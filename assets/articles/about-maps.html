@@ -1,0 +1,91 @@
+<h1>About Maps</h1>
+<p>
+    Each map is a JSON file and an image. Don't worry if you don't know what JSON is, you can just straight copy a map
+    JSON from here, open it up with notepad and change the data fields to match what you're making. If you open any of
+    these map files you will see a bunch of fields of data to be edited. This article will briefly explain them.
+</p>
+<table-of-contents></table-of-contents>
+<h2 id="about-name">About name</h2>
+<p>
+    The name field is the map's title. <em>This is what will show up on the <a tomenu="maps-index">maps index</a>
+        page.</em> The filename is also important and is similar to <a toarticle="about-articles">articles</a>. <em>The
+        filename is what will be used to link to your map</em>, so if you have a map file called
+    <em>island-of-moon-shards.json</em>, you will link to it with an anchor with a
+    <em>tomap="island-of-moon-shards"</em> attribute to it. More about links on the <a
+        toarticle="about-articles">articles</a> page.
+</p>
+<h2 id="about-image">About image</h2>
+<p>
+    The image field is the image file for this map. <em>All images must be inside the <em>assets/images</em>
+        folder.</em>
+</p>
+<h2 id="about-links">About links</h2>
+<p>
+    This is a list of every link on your map. If you see any map on this, you will see that it's the image with a bunch
+    of links on top. The idea is that these links will act like the name of the places they're on, and they're linking
+    to an article explaining that place. Every link has a <em>name</em>, a <em>size</em>, a <em>pos</em> and they can
+    have <em>toarticle</em> and/or <em>tomap</em> fields.
+</p>
+<p>
+    Again, read about links on the <a toarticle="about-articles">articles</a> page, but you can also learn everything
+    about links by seeing the source file of any article, including this one on
+    <code>assets/articles/about-maps.html</code>.
+</p>
+<h3 id="link-names">Link names</h3>
+<p>
+    This name is what will be inside the <code>a</code> tag, so it's what's going to show up on the map's page and be
+    read by humans.
+</p>
+<h3 id="link-sizes">Link sizes</h3>
+<p>
+    There are three sizes: <em>large</em>, <em>medium</em> and <em>small</em>. They're just for style. You can see how
+    all of them look like by accessing a map and checking its source file.
+</p>
+<h3 id="link-pos">Link pos</h3>
+<p>
+    As you might have guessed, it stands for position. It is the position of the link in relation to the image in
+    percentages of its size. It starts from the top left and goes to the bottom right, so a position of <code>"x":
+        "50%", "y": "50%"</code> means the exact center of the map, while something like <code>"x": "20%", "y":
+        "80%"</code> is close to the bottom left.
+</p>
+<p>
+    All positions must have both the <em>x</em> and <em>y</em> fields, and all links must have a position.
+</p>
+<h3 id="link-tomaps-and-toarticles">Link tomaps and toarticles</h3>
+<p>
+    These are the filenames of the article/map you're trying to link to. If you've seen the source file of any article
+    and seen how links that link to an article or map inside the page look like, it's the same thing.
+</p>
+<p>
+    A link with <code>"toarticle": "about-maps"</code> should link to this article right here, while a link with
+    <code>"tomap": "map2"</code> should link to <a tomap="map2">Example Map Two</a>. You don't need to have one or the
+    other, you can have neither or even both at the same time, but having links without either should look weird as your
+    players might think they are broken, so use them with care.
+</p>
+<h2 id="about-json">About JSON</h2>
+<p>
+    Lastly, I wanted to talk about JSON. If you have never seen this file type, don't worry. I'm just writing this
+    section here because they are very easy to mess up and might be a source of frustration with your maps not loading.
+    <em>Every field name needs to be inside quotation marks</em>, and if you forget to close a quotation mark, your map
+    won't load. Same thing for the value of each field, at least for these map JSONs, these values must be inside
+    quotation marks.
+</p>
+<p>
+    Also, <em>after every pair of field/value, there must be a comma except after the last one</em>. You can see that
+    after the name and the image, there is a comma. Forgetting that comma will cause your map to not load. You can also
+    see a comma after every curly braces at the end of every link entry as well, and as you might have guessed it,
+    forgetting these will cause your map to break.
+</p>
+<p>
+    Except for the last entries. You can see that after the last link, there is no comma at its closing curly braces.
+    <em>Adding a comma here will cause your map to not load.</em> Yes, I know it's annoying but it's the easiest way to
+    interface with browsers and the internet right now. Maybe in the future if it becomes enough of a pain point I might
+    add support for a better data storage means, but right now I think it's good enough.
+</p>
+<p>
+    For all these reasons, I recommend you only make maps by copying working maps and editing out it's values. You can
+    add more links by copying an entire block and adding them to the list, just be careful when adding to the bottom of
+    the list. You can just add them to the top of the list instead, the order of the links in this link won't matter
+    since you manually set their positions anyway. Just come back to this article if any map breaks and carefully comb
+    your file.
+</p>

@@ -1,5 +1,6 @@
 {
-    "title": "Work In Progress",
+    "title": "Fantasy World Wiki",
+    "icon": "favicon.svg",
     "defaultMap": "map1",
     "enableCreditsPage": true,
     "labels": {

@@ -4,19 +4,19 @@
 
 @layer base {
     h1 {
-        @apply mt-8 mb-4 clear-both text-2xl lg:text-5xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark;
+        @apply mt-8 mb-4 clear-both text-2xl lg:text-5xl font-fancy font-bold uppercase text-primary;
     }
 
     h2 {
-        @apply mt-10 mb-2 clear-both text-2xl lg:text-4xl font-fancy font-bold uppercase text-primary-light dark:text-primary-dark border-primary-light dark:border-primary-dark border-b-2;
+        @apply mt-10 mb-2 clear-both text-2xl lg:text-4xl font-fancy font-bold uppercase text-primary border-primary border-b-2;
     }
 
     h3 {
-        @apply mt-6 clear-both text-2xl lg:text-4xl font-display font-bold text-primary-light dark:text-primary-dark;
+        @apply mt-6 clear-both text-2xl lg:text-4xl font-display font-bold text-primary;
     }
 
     h4 {
-        @apply mt-4 text-xl lg:text-2xl font-display font-bold text-primary-light dark:text-primary-dark;
+        @apply mt-4 text-xl lg:text-2xl font-display font-bold text-primary;
     }
 
     h5 {
@@ -32,7 +32,7 @@
     }
 
     a {
-        @apply text-primary-light dark:text-primary-dark underline hover:brightness-125;
+        @apply text-primary underline hover:brightness-125;
     }
 
     table {
@@ -53,25 +53,47 @@
     }
 
     button {
-        @apply px-3 h-8 text-lg text-fg-light dark:text-fg-dark font-sans font-semibold rounded border border-primary-light bg-primary-light dark:border-primary-dark dark:bg-primary-dark duration-100 ease-in-out hover:brightness-125 active:scale-90 disabled:opacity-50;
+        @apply px-3 h-8 text-lg text-fg-light dark:text-fg-dark font-sans font-semibold rounded border border-primary bg-primary duration-100 ease-in-out hover:brightness-125 active:scale-90 disabled:opacity-50;
+    }
+
+    img {
+        @apply w-full my-2;
+    }
+
+    code {
+        @apply text-sm;
     }
 }
 
 @layer components {
     .left-float {
-        @apply lg:float-left lg:mr-4 lg:mt-0 lg:w-auto;
+        @apply lg:float-left lg:mr-4 lg:mt-0 lg:w-auto lg:max-w-[512px];
     }
 
     .right-float {
-        @apply lg:float-right lg:ml-4 lg:mt-0 lg:w-auto;
+        @apply lg:float-right lg:ml-4 lg:mt-0 lg:w-auto lg:max-w-[512px];
     }
 
     .note {
-        @apply bg-black bg-opacity-20 dark:bg-white dark:bg-opacity-20 shadow-black shadow-md w-full lg:w-1/2 p-4 my-2 leading-normal font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
+        @apply bg-black bg-opacity-20 dark:bg-white dark:bg-opacity-20 shadow-black shadow-md w-full p-4 my-2 leading-normal font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
+
+        h5,
+        h6 {
+            @apply mt-0;
+        }
+
+        p {
+            @apply mb-0;
+        }
+    }
+
+    .note.left-float,
+    .note.right-float {
+        @apply lg:w-1/2;
     }
 
     button.outlined {
-        @apply text-primary-light dark:text-primary-dark bg-transparent;
+        @apply text-primary bg-transparent;
     }
 
     button.sm {
@@ -190,10 +212,15 @@
 @layer utilities {
     .text-shadow {
         text-shadow:
-            0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5),
-            -0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5),
-            0.25rem -0.25rem 1rem rgba(0, 0, 0, 0.5),
-            -0.25rem -0.25rem 1rem rgba(0, 0, 0, 0.5),
+            0 0 0.125rem black,
+            0 0 0.125rem black,
+            0 0 0.125rem black,
+            0 0 0.125rem black,
+            0 0 1rem black,
+            0.25rem 0.25rem 1rem black,
+            -0.25rem 0.25rem 1rem black,
+            0.25rem -0.25rem 1rem black,
+            -0.25rem -0.25rem 1rem black,
             0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
             -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
             0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5),
@@ -202,6 +229,10 @@
 
     .text-shadow-sm {
         text-shadow:
+            0 0 0.125rem black,
+            0 0 0.125rem black,
+            0 0 0.125rem black,
+            0 0 0.125rem black,
             0.25rem 0.25rem 1rem black,
             -0.25rem 0.25rem 1rem black,
             0.25rem -0.25rem 1rem black,
