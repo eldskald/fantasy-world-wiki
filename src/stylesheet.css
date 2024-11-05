@@ -8,7 +8,7 @@
     }
 
     h2 {
-        @apply mt-10 mb-2 clear-both text-2xl lg:text-4xl font-fancy font-bold uppercase text-primary border-primary border-b-2;
+        @apply mt-10 mb-2 clear-both text-2xl lg:text-4xl font-display font-bold text-primary border-primary border-b-2;
     }
 
     h3 {
