@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+import { buildSearch } from "../scripts/build-search.js";
+
+buildSearch("assets/articles/", "assets/maps/", "build/search-data.json");
