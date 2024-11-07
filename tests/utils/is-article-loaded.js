@@ -1,8 +1,8 @@
 import { expect } from "@jest/globals";
+import { isArticleModalOpen } from "../../src/components/article-modal.js";
 
 export function isArticleLoaded(name, content) {
     const inner = document.getElementById("article-container-inner");
-    const outer = document.getElementById("article-container-outer");
     const params = new URL(document.location.href).searchParams;
 
     let check = true;
@@ -13,13 +13,8 @@ export function isArticleLoaded(name, content) {
     expect(inner.innerHTML).toBe(content);
     if (inner.innerHTML !== content) check = false;
 
-    expect(outer.getAttribute("data-hidden")).toBe(
-        name === null ? "true" : "false",
-    );
-    if (
-        outer.getAttribute("data-hidden") !== (name === null ? "true" : "false")
-    )
-        check = false;
+    expect(isArticleModalOpen()).toBe(name !== null);
+    if (isArticleModalOpen() !== (name !== null)) check = false;
 
     return check;
 }
