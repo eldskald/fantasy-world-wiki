@@ -53,7 +53,7 @@
     }
 
     button {
-        @apply px-3 h-8 text-lg text-fg-light dark:text-fg-dark font-sans font-semibold rounded border border-primary bg-primary duration-100 ease-in-out hover:brightness-125 active:scale-90 disabled:opacity-50;
+        @apply rounded duration-100 ease-in-out hover:brightness-125 active:bg-black active:bg-opacity-10 active:dark:bg-white active:dark:bg-opacity-10 active:shadow-inner active:shadow-black active:scale-90;
     }
 
     img {
@@ -66,6 +66,10 @@
 }
 
 @layer components {
+    .paper {
+        @apply shadow-black shadow-lg bg-bg-light dark:bg-bg-dark;
+    }
+
     .left-float {
         @apply lg:float-left lg:mr-4 lg:mt-0 lg:w-auto lg:max-w-[512px];
     }
@@ -92,16 +96,8 @@
         @apply lg:w-1/2;
     }
 
-    button.outlined {
-        @apply text-primary bg-transparent;
-    }
-
-    button.sm {
-        @apply h-6 text-sm px-2;
-    }
-
-    button.lg {
-        @apply h-10 text-2xl px-4;
+    button.pressed {
+        @apply bg-black bg-opacity-10 dark:bg-white dark:bg-opacity-10 shadow-inner shadow-black;
     }
 
     table.left-col-1 {
