@@ -1,4 +1,5 @@
 import { getMenuButton, getMenuModal } from "../components/menu.js";
+import { getThemeSwitcher } from "../components/theme-switcher.js";
 
 function setupRoot() {
     document.body.className = "overflow-hidden";
@@ -50,11 +51,8 @@ function setupTopbar() {
     const menuButton = getMenuButton();
     topBar.appendChild(menuButton);
 
-    // Theme switcher link
-    const themeSwitcher = document.createElement("button");
-    themeSwitcher.id = "theme-switcher";
-    themeSwitcher.className = "aspect-square h-full";
-    topBar.appendChild(themeSwitcher);
+    // Theme switcher
+    topBar.appendChild(getThemeSwitcher());
 }
 
 function setupMapContainer() {
