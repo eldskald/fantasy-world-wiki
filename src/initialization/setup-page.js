@@ -1,6 +1,7 @@
 import { getMenuButton, getMenuModal } from "../components/menu.js";
 import { getThemeSwitcher } from "../components/theme-switcher.js";
 import { getArticleModal } from "../components/article-modal.js";
+import { getMapContainer } from "../components/map-container.js";
 
 function setupRoot() {
     document.body.className = "overflow-hidden";
@@ -58,14 +59,6 @@ function setupTopbar() {
     topBar.appendChild(getThemeSwitcher());
 }
 
-function setupMapContainer() {
-    const mainContainer = document.getElementById("main-container");
-    const mapContainer = document.createElement("div");
-    mapContainer.id = "map-container";
-    mapContainer.className = "h-full w-full";
-    mainContainer.appendChild(mapContainer);
-}
-
 export function setupPage() {
     // Setup document head
     const title = document.createElement("title");
@@ -80,6 +73,6 @@ export function setupPage() {
     const main = setupRoot();
 
     setupTopbar();
-    setupMapContainer();
+    main.appendChild(getMapContainer());
     main.appendChild(getArticleModal());
 }
