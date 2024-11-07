@@ -1,5 +1,6 @@
 import { getMenuButton, getMenuModal } from "../components/menu.js";
 import { getThemeSwitcher } from "../components/theme-switcher.js";
+import { getArticleModal } from "../components/article-modal.js";
 
 function setupRoot() {
     document.body.className = "overflow-hidden";
@@ -14,6 +15,8 @@ function setupRoot() {
     contentWrapper.appendChild(mainContainer);
     contentWrapper.appendChild(getMenuModal());
     document.body.appendChild(contentWrapper);
+
+    return mainContainer;
 }
 
 function setupTopbar() {
@@ -63,39 +66,6 @@ function setupMapContainer() {
     mainContainer.appendChild(mapContainer);
 }
 
-function setupArticleContainer() {
-    const mainContainer = document.getElementById("main-container");
-    const articleContainerOuter = document.createElement("div");
-    articleContainerOuter.id = "article-container-outer";
-    articleContainerOuter.className = `
-        fixed top-12 bottom-0 w-screen flex flex-col lg:max-w-screen-lg
-        transition-all duration-200 data-[hidden=false]:-translate-x-full
-        -right-full lg:right-[-1024px]
-    `;
-    mainContainer.appendChild(articleContainerOuter);
-    const articleContainerMid = document.createElement("div");
-    articleContainerMid.className = "m-4 grow relative paper";
-    articleContainerOuter.appendChild(articleContainerMid);
-    const articleContainerInner = document.createElement("article");
-    articleContainerInner.id = "article-container-inner";
-    articleContainerInner.className =
-        "absolute top-8 bottom-0 left-0 right-0 px-4 pb-4 overflow-scroll";
-    articleContainerMid.appendChild(articleContainerInner);
-
-    // Container for the close article link
-    const articleControlPanel = document.createElement("div");
-    articleControlPanel.className =
-        "absolute top-0 left-4 right-4 h-8 flex justify-between items-center";
-    articleContainerMid.appendChild(articleControlPanel);
-
-    // Close article link
-    const closeArticleBtn = document.createElement("a");
-    closeArticleBtn.setAttribute("toarticle", "");
-    closeArticleBtn.innerHTML = window.settings.labels.closeArticle;
-    closeArticleBtn.className = "text-lg font-sans";
-    articleControlPanel.appendChild(closeArticleBtn);
-}
-
 export function setupPage() {
     // Setup document head
     const title = document.createElement("title");
@@ -107,8 +77,9 @@ export function setupPage() {
     document.head.appendChild(icon);
 
     // Setup document body
-    setupRoot();
+    const main = setupRoot();
+
     setupTopbar();
     setupMapContainer();
-    setupArticleContainer();
+    main.appendChild(getArticleModal());
 }
