@@ -13,6 +13,7 @@
         "darkMode": "Dark Mode",
         "lightMode": "Light Mode",
         "tableOfContents": "Table of Contents",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "searchBarPlaceholder": "Search for..."
     }
 }

@@ -32,7 +32,7 @@
     }
 
     a {
-        @apply text-primary underline hover:brightness-125;
+        @apply text-primary underline hover:brightness-150 focus:outline-none focus:brightness-150;
     }
 
     table {
@@ -53,7 +53,7 @@
     }
 
     button {
-        @apply rounded duration-100 ease-in-out hover:brightness-125 active:bg-black active:bg-opacity-10 active:dark:bg-white active:dark:bg-opacity-10 active:shadow-inner active:shadow-black active:scale-90;
+        @apply rounded duration-100 ease-in-out hover:brightness-150 focus:brightness-150 focus:outline-none active:bg-black active:bg-opacity-10 active:dark:bg-white active:dark:bg-opacity-10 active:shadow-inner active:shadow-black active:scale-90;
     }
 
     img {

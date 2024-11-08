@@ -1,12 +1,23 @@
 import { getThemeSwitcher } from "./theme-switcher.js";
 import { getMenuButton } from "./menu.js";
+import { getSearchBar } from "./search-bar.js";
 
 export function getTopBar() {
     const topBar = document.createElement("header");
     topBar.className = `
-        absolute top-0 left-0 right-0 h-12 p-1 paper flex
-        items-center justify-between lg:px-4
+        absolute top-0 left-0 right-0 h-12 p-1 paper flex flex-row gap-2
+        lg:px-4
     `;
+    const left = document.createElement("div");
+    const center = document.createElement("div");
+    const right = document.createElement("div");
+    left.className = "lg:basis-1/3 h-full flex";
+    center.className =
+        "grow lg:grow-0 lg:basis-1/3 h-full flex justify-center items-start";
+    right.className = "lg:basis-1/3 h-full flex justify-end";
+    topBar.appendChild(left);
+    topBar.appendChild(center);
+    topBar.appendChild(right);
 
     // PC navbar
     const icon = document.createElement("img");
@@ -23,7 +34,7 @@ export function getTopBar() {
     navContainer.appendChild(icon);
     navContainer.appendChild(articlesIndex);
     navContainer.appendChild(mapsIndex);
-    topBar.appendChild(navContainer);
+    left.appendChild(navContainer);
     if (window.settings.enableCreditsPage) {
         const credits = document.createElement("a");
         credits.setAttribute("tomenu", "credits");
@@ -32,10 +43,13 @@ export function getTopBar() {
     }
 
     // Mobile menu
-    topBar.appendChild(getMenuButton());
+    left.appendChild(getMenuButton());
+
+    // Search bar
+    center.appendChild(getSearchBar());
 
     // Theme switcher
-    topBar.appendChild(getThemeSwitcher());
+    right.appendChild(getThemeSwitcher());
 
     return topBar;
 }

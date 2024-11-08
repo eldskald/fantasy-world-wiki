@@ -20,7 +20,7 @@ export function getMenuModal() {
     outer.id = "menu-modal";
     outer.className = `
         fixed top-14 z-10 w-fit h-fit px-4 transition-all duration-200
-        -translate-x-full
+        -translate-x-full lg:hidden
     `;
     const inner = document.createElement("div");
     inner.className = "paper w-fit h-fit px-4 py-2 flex flex-col";
