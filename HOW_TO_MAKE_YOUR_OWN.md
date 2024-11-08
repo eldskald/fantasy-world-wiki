@@ -65,10 +65,22 @@ The [assets/fonts/fonts.css](assets/fonts/fonts.css) file loads fonts from servi
 
 Having done that, you need to put the font names on your [assets/theme/index.js](assets/theme/index.js) file. There are four fonts being used, `fancy` is for the article titles and map large and medium links, `display` font is used for sectioning and sub-sectioning of articles. `sans` and `serif` are for text. `sans` shows up on small links on maps, table titles, `<h5>` and `<h6>` tags while `serif` is the main body of text on the articles.
 
-### For developers
+## Updating process
+
+After making commits, you might have noticed that it takes around 30s for them to show up on the site. You can follow how it's going right here:
+
+![](assets/images/github-actions-1.png)
+
+On this screenshot, it shows a green checkmark. That means all is finished and everything is fine. Right after committing, it will be a yellow dot. If you click it, it will show all three checks that are being made:
+
+![](assets/images/github-actions-2.png)
+
+These are scripts that run every time a commit is made. The deploy one is the one that updates your webpage. The lint one should never fail unless you touch the source code. The test one is there to tell if something went wrong, mostly a broken JSON file or even an article/map pointing to an article or map that doesn't exist (most likely a typo). If any of those three checks fail, a red X should show instead of a green checkmark there. Always be attentive to those, if tests are failing, even if your site might still works there is something off in it. Click the details link to see the logs. If you can't figure out what's wrong with the logs, email me.
+
+## For developers
 
 See the [HACKING.md](HACKING.md) file for more technical information on how to customize your fork even further.
 
-### Wrapping up
+## Wrapping up
 
 That's it, really. You can send me an email in case anything breaks and you don't know what to do. If you have a page working, I recommend going over the articles on this project at [here](https://eldskald.github.io/fantasy-world-wiki) to get more detail on how to write articles, maps and customize everything.
