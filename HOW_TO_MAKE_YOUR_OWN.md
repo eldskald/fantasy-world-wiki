@@ -2,8 +2,9 @@
 
 The first thing you need to do is to make your own project using this one as a templace. Don't worry if you're not a programmer, you don't need to touch the code, although having some knowledge of HTML would be useful, the examples given here are very self explanatory and should get you started.
 
-To do this, make a GitHub account, come back to this project and push the green "Use this template" button at the top of the page. Choose "Create a new repository". Type the name of your world on the repository name and the others you can put whatever you want.
+To do this, make a GitHub account, come back to this project and push the green "Use this template" button at the top of the page. Choose "Create a new repository". Type the name of your world on the repository name and the others you can put whatever you want. Now you have your own repository that you can edit the files of, but in order to have the webpage working, you'll need to activate GitHub Pages for your repository.
 
+To do that, go to Settings, Pages and on Build and deployment, choose Source GitHub Actions. If everything is up fine, whenever you change any file in the repository the project should update the webpage automatically after a couple seconds. More on that on the last section.
 
 ## Editing files
 
