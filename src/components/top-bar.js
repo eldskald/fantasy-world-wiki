@@ -12,7 +12,8 @@ export function getTopBar() {
     const center = document.createElement("div");
     const right = document.createElement("div");
     left.className = "lg:basis-1/3 h-full flex";
-    center.className = "grow lg:grow-0 lg:basis-1/3 h-full flex justify-center";
+    center.className =
+        "grow lg:grow-0 lg:basis-1/3 h-full flex justify-center items-start";
     right.className = "lg:basis-1/3 h-full flex justify-end";
     topBar.appendChild(left);
     topBar.appendChild(center);
