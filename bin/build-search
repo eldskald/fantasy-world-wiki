@@ -2,4 +2,4 @@
 
 import { buildSearch } from "../scripts/build-search.js";
 
-buildSearch("assets/articles/", "assets/maps/", "build/search-data.json");
+buildSearch("assets/articles/", "assets/maps/", "build/search-data.js");

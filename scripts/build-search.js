@@ -37,7 +37,7 @@ function setupData(articlesPath, mapsPath) {
     const table = {};
     getArticles(articlesPath, table);
     getMaps(mapsPath, table);
-    return JSON.stringify(table);
+    return `export default ${JSON.stringify(table)}`;
 }
 
 export function buildSearch(articlesPath, mapsPath, buildPath) {

@@ -98,7 +98,7 @@ describe("buildSearch", () => {
                 result.data = data;
             });
             expectedData =
-                '{"title":{"toarticle":"file","tomap":"lastmap"},"text":{"toarticle":"other"},"mock":{"tomap":"firstmap"}}';
+                'export default {"title":{"toarticle":"file","tomap":"lastmap"},"text":{"toarticle":"other"},"mock":{"tomap":"firstmap"}}';
             buildSearch(articlesPath, mapsPath, buildPath);
         });
 
