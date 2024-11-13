@@ -18,22 +18,28 @@ export function setMap(data) {
         if (link.size === "large")
             a.className = `
                 text-5xl text-shadow font-fancy font-bold absolute
-                -translate-x-1/2 -translate-y-1/2 no-underline
+                no-underline
             `;
         else if (link.size === "medium")
             a.className = `
                 text-3xl text-shadow font-fancy font-bold absolute
-                -translate-x-1/2 -translate-y-1/2 no-underline
+                no-underline
             `;
         else if (link.size === "small")
             a.className = `
                 text-xl text-shadow-sm font-sans font-bold absolute
-                -translate-x-1/2 -translate-y-1/2 no-underline
+                no-underline
             `;
         if (link.toarticle) a.setAttribute("toarticle", link.toarticle);
         if (link.tomap) a.setAttribute("tomap", link.tomap);
         a.innerHTML = link.name;
-        a.style = `top: ${link.pos.y}; left: ${link.pos.x};`;
+        let style = `top: ${link.pos.y}; left: ${link.pos.x};`;
+        style += " transform: translate(-50%, -50%);";
+        if (link.rotation) {
+            style = style.slice(0, -1);
+            style += ` rotate(${link.rotation}deg);`;
+        }
+        a.style = style;
         container.appendChild(a);
     });
 }
