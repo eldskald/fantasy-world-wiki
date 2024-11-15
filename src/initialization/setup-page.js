@@ -22,7 +22,7 @@ export function setupPage() {
     `;
     const mainContainer = document.createElement("div");
     mainContainer.id = "main-container";
-    mainContainer.className = "min-h-full relative";
+    mainContainer.className = "min-h-full relative overflow-hidden";
     contentWrapper.appendChild(mainContainer);
     contentWrapper.appendChild(getMenuModal());
     document.body.appendChild(contentWrapper);

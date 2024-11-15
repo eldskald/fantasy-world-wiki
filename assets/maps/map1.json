@@ -16,7 +16,7 @@
             "size": "medium",
             "toarticle": "example",
             "pos": {
-                "x": "20%",
+                "x": "15%",
                 "y": "17%"
             }
         },
@@ -36,7 +36,39 @@
             "toarticle": "example",
             "pos": {
                 "x": "70%",
-                "y": "54%"
+                "y": "51%"
+            }
+        },
+        {
+            "name": "Holy Lake",
+            "size": "small",
+            "toarticle": "example",
+            "rotation": -60,
+            "radius": 100,
+            "pos": {
+                "x": "63%",
+                "y": "40%"
+            }
+        },
+        {
+            "name": "Holy River",
+            "size": "small",
+            "toarticle": "example",
+            "radius": -40,
+            "rotation": 30,
+            "pos": {
+                "x": "57%",
+                "y": "39%"
+            }
+        },
+        {
+            "name": "Desert Hope River",
+            "size": "small",
+            "toarticle": "example",
+            "radius": 350,
+            "pos": {
+                "x": "84%",
+                "y": "55%"
             }
         },
         {

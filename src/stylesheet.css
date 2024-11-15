@@ -206,33 +206,27 @@
 }
 
 @layer utilities {
-    .text-shadow {
-        text-shadow:
-            0 0 0.125rem black,
-            0 0 0.125rem black,
-            0 0 0.125rem black,
-            0 0 0.125rem black,
-            0 0 1rem black,
-            0.25rem 0.25rem 1rem black,
-            -0.25rem 0.25rem 1rem black,
-            0.25rem -0.25rem 1rem black,
-            -0.25rem -0.25rem 1rem black,
-            0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
-            -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5),
-            0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5),
-            -0.5rem -0.5rem 1rem rgba(0, 0, 0, 0.5);
+    .svg-shadow {
+        filter: drop-shadow(0 0 0.125rem black) drop-shadow(0 0 0.125rem black)
+            drop-shadow(0 0 0.125rem black) drop-shadow(0 0 0.125rem black)
+            drop-shadow(0 0 0.5rem black) drop-shadow(0 0 0.75rem black);
     }
 
-    .text-shadow-sm {
-        text-shadow:
-            0 0 0.125rem black,
-            0 0 0.125rem black,
-            0 0 0.125rem black,
-            0 0 0.125rem black,
-            0.25rem 0.25rem 1rem black,
-            -0.25rem 0.25rem 1rem black,
-            0.25rem -0.25rem 1rem black,
-            -0.25rem -0.25rem 1rem black,
-            0 0 1rem black;
+    .hover-svg-shadow {
+        filter: drop-shadow(0 0 0.125rem black) drop-shadow(0 0 0.125rem black)
+            drop-shadow(0 0 0.125rem black) drop-shadow(0 0 0.125rem black)
+            drop-shadow(0 0 0.5rem black) drop-shadow(0 0 0.75rem black)
+            brightness(1.5);
+    }
+
+    .svg-shadow-sm {
+        filter: drop-shadow(0 0 0.1rem black) drop-shadow(0 0 0.1rem black)
+            drop-shadow(0 0 0.1rem black) drop-shadow(0 0 0.1rem black);
+    }
+
+    .hover-svg-shadow-sm {
+        filter: drop-shadow(0 0 0.1rem black) drop-shadow(0 0 0.1rem black)
+            drop-shadow(0 0 0.1rem black) drop-shadow(0 0 0.1rem black)
+            brightness(1.5);
     }
 }
