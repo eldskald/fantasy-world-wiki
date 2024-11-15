@@ -23,7 +23,9 @@ export async function detectMenu() {
     current = query;
     setArticleModal(`<p>${window.settings.labels.loading}</p>`);
     try {
-        const res = await fetch(`${window.settings.paths.menu}${query}.html`);
+        const res = await fetch(`${window.settings.paths.menu}${query}.html`, {
+            cache: "no-store",
+        });
         if (!res.ok) {
             throw {
                 status: res.status,

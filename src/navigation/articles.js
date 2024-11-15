@@ -25,6 +25,7 @@ export async function detectArticle() {
     try {
         const res = await fetch(
             `${window.settings.paths.articles}${query}.html`,
+            { cache: "no-store" },
         );
         if (!res.ok) {
             throw {
