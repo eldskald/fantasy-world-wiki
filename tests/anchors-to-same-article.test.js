@@ -14,10 +14,15 @@ describe("anchors to same article", () => {
 
     test("should fetch for article only once", () => {
         expect(window.fetch).toHaveBeenCalledTimes(3);
-        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map1.json");
-        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map2.json");
+        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map1.json", {
+            cache: "no-store",
+        });
+        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map2.json", {
+            cache: "no-store",
+        });
         expect(window.fetch).toHaveBeenCalledWith(
             "/assets/articles/article1.html",
+            { cache: "no-store" },
         );
     });
 });

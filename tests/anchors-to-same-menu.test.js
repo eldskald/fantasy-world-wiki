@@ -14,10 +14,15 @@ describe("anchors to same menu", () => {
 
     test("should fetch for menu only once", () => {
         expect(window.fetch).toHaveBeenCalledTimes(3);
-        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map1.json");
-        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map2.json");
+        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map1.json", {
+            cache: "no-store",
+        });
+        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map2.json", {
+            cache: "no-store",
+        });
         expect(window.fetch).toHaveBeenCalledWith(
             "/build/menu/maps-index.html",
+            { cache: "no-store" },
         );
     });
 });

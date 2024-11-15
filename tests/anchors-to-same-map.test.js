@@ -14,9 +14,12 @@ describe("anchors to same map", () => {
 
     test("should fetch for maps only once", () => {
         expect(window.fetch).toHaveBeenCalledTimes(2);
-        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map2.json");
+        expect(window.fetch).toHaveBeenCalledWith("/assets/maps/map2.json", {
+            cache: "no-store",
+        });
         expect(window.fetch).toHaveBeenCalledWith(
             "/assets/articles/article1.html",
+            { cache: "no-store" },
         );
     });
 });

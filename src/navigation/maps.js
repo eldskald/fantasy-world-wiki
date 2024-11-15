@@ -13,7 +13,9 @@ export async function detectMap() {
     current = query;
     container.innerHTML = `<p>${window.settings.labels.loading}</p>`;
     try {
-        const res = await fetch(`${window.settings.paths.maps}${query}.json`);
+        const res = await fetch(`${window.settings.paths.maps}${query}.json`, {
+            cache: "no-store",
+        });
         if (!res.ok) {
             throw {
                 status: res.status,
