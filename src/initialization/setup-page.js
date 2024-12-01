@@ -2,6 +2,7 @@ import { getMenuModal } from "../components/menu.js";
 import { getArticleModal } from "../components/article-modal.js";
 import { getMapContainer } from "../components/map-container.js";
 import { getTopBar } from "../components/top-bar.js";
+import { changeSearchParam } from "../navigation/change-search-param.js";
 
 export function setupPage() {
     // Setup document head
@@ -29,4 +30,11 @@ export function setupPage() {
     document.body.appendChild(getTopBar());
     mainContainer.appendChild(getMapContainer());
     mainContainer.appendChild(getArticleModal());
+
+    // Initial article
+    const params = new URLSearchParams(window.location.search);
+    const initialArticle = window.settings.initialArticle;
+    if (initialArticle && !params.has("articles")) {
+        changeSearchParam({ article: initialArticle });
+    }
 }

@@ -5,7 +5,7 @@
     links on the top bar) to allow you to edit them.
 </p>
 <table-of-contents></table-of-contents>
-<h2 id="title-and-icon">Title and ion</h2>
+<h2 id="title-and-icon">Title and icon</h2>
 <p>
     The <em>title</em> field is the title of the whole webpage, you know, the one that shows up on your browser's tab
     side by side with an icon. That icon by the way is the one at <code>assets/icons/favicon.svg</code>, set by the
@@ -17,6 +17,23 @@
     The <em>defaultMap</em> entry is the initial map that loads in when you enter the page. Treat it like any other
     <code>a</code> tag with a <em>tomap</em> attribute, just put the name of the map (the filename without the
     <code>.json</code>) and it will become your main/default map to load into.
+</p>
+<h2 id="initial-article">Initial article</h2>
+<p>
+    The <em>initialArticle</em> entry is a possible initial article when you enter the page. Treat it like any other
+    <code>a</code> tag with a <em>toarticle</em> attribute, just put the name of the article (the filename without the
+    <code>.html</code>) and it will load the moment you first enter the page. It is also optional, so if you put
+    <em>""</em> as its value, no initial article will load.
+</p>
+<p>
+    The main difference between this and the <em>defaultMap</em> value is that if you put any link with
+    <code>tomap=""</code>, it will link to the default map where the initial article it will close the current article.
+    In fact, if there is an initial article and you load the URL with no article in it, it will change it to include the
+    initial article. It is just an initial article if you load the page with an URL with no articles in it, while the
+    <em>defaultMap</em> will impact all links to your default map, which should be linked as <em>tomap=""</em>. It is
+    also optional because it can be, you might not want to load in an initial article in your webpage while "no map
+    loaded" doesn't even makes sense, there is always a map loaded in so you have to tell the app what to load when
+    there is no map on the URL.
 </p>
 <h2 id="enable-credits-page">Enable credits page</h2>
 <p>
