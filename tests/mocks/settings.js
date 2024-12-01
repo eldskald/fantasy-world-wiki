@@ -1,9 +1,11 @@
 export const settings = {
     title: "Work In Progress",
     defaultMap: "map1",
+    initialArticle: "",
     enableCreditsPage: true,
     labels: {
         closeArticle: "Close",
+        homeLink: "Home",
         articlesIndexLink: "Articles",
         articlesIndex: "Articles Index",
         mapsIndexLink: "Maps",

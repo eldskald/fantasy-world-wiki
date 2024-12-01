@@ -2,6 +2,7 @@
     "title": "Fantasy World Wiki",
     "icon": "favicon.svg",
     "defaultMap": "map1",
+    "initialArticle": "",
     "enableCreditsPage": true,
     "labels": {
         "closeArticle": "Close",
