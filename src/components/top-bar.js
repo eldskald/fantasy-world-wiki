@@ -23,6 +23,9 @@ export function getTopBar() {
     const icon = document.createElement("img");
     icon.src = "assets/icons/favicon.svg";
     icon.className = "h-8 w-8";
+    const homeLink = document.createElement("a");
+    homeLink.setAttribute("tomap", "");
+    homeLink.innerHTML = window.settings.labels.homeLink;
     const articlesIndex = document.createElement("a");
     articlesIndex.setAttribute("tomenu", "articles-index");
     articlesIndex.innerHTML = window.settings.labels.articlesIndexLink;
@@ -32,6 +35,7 @@ export function getTopBar() {
     const navContainer = document.createElement("div");
     navContainer.className = "hidden lg:flex gap-4 items-center";
     navContainer.appendChild(icon);
+    navContainer.appendChild(homeLink);
     navContainer.appendChild(articlesIndex);
     navContainer.appendChild(mapsIndex);
     left.appendChild(navContainer);

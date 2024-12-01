@@ -26,6 +26,10 @@ export function getMenuModal() {
     inner.className = "paper w-fit h-fit px-4 py-2 flex flex-col";
     outer.appendChild(inner);
 
+    const homeLink = document.createElement("a");
+    homeLink.setAttribute("tomap", "");
+    homeLink.innerHTML = window.settings.labels.homeLink;
+    homeLink.className = "block";
     const articlesIndex = document.createElement("a");
     articlesIndex.setAttribute("tomenu", "articles-index");
     articlesIndex.innerHTML = window.settings.labels.articlesIndexLink;
@@ -34,6 +38,7 @@ export function getMenuModal() {
     mapsIndex.setAttribute("tomenu", "maps-index");
     mapsIndex.innerHTML = window.settings.labels.mapsIndexLink;
     mapsIndex.className = "block";
+    inner.appendChild(homeLink);
     inner.appendChild(articlesIndex);
     inner.appendChild(mapsIndex);
     if (window.settings.enableCreditsPage) {

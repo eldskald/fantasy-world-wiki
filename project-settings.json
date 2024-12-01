@@ -5,6 +5,7 @@
     "enableCreditsPage": true,
     "labels": {
         "closeArticle": "Close",
+        "homeLink": "Home",
         "articlesIndexLink": "Articles",
         "articlesIndex": "Articles Index",
         "mapsIndexLink": "Maps",
