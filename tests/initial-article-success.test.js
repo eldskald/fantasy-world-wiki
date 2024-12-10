@@ -9,7 +9,7 @@ jest.mock("./mocks/settings.js");
 
 mockFetch();
 
-describe("initial article", () => {
+describe("initial article success", () => {
     beforeEach(async () => {
         settings.initialArticle = "article1";
         await initDom();

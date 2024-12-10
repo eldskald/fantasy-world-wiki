@@ -34,7 +34,12 @@ export function setupPage() {
     // Initial article
     const params = new URLSearchParams(window.location.search);
     const initialArticle = window.settings.initialArticle;
-    if (initialArticle && !params.has("articles")) {
+    if (
+        initialArticle &&
+        !params.has("article") &&
+        !params.has("menu") &&
+        !params.has("map")
+    ) {
         changeSearchParam({ article: initialArticle });
     }
 }
