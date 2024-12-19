@@ -1,5 +1,16 @@
 import { setAnchors } from "./anchor.js";
 
+function setResultLink(title, data) {
+    const result = document.getElementById("search-result");
+    result.innerHTML = title;
+    if ("tomap" in data) result.setAttribute("tomap", data.tomap);
+    else result.removeAttribute("tomap");
+    if ("toarticle" in data) result.setAttribute("toarticle", data.toarticle);
+    else result.removeAttribute("toarticle");
+    result.classList.remove("hidden");
+    setAnchors([result]);
+}
+
 function search(input) {
     const result = document.getElementById("search-result");
     result.innerHTML = "";
@@ -8,21 +19,19 @@ function search(input) {
     if (!input) return;
 
     const pattern = new RegExp(input.split("").join(".*"), "i");
+    let hit = null;
     for (let i = 0; i < window.search.titles.length; i++) {
         const title = window.search.titles[i];
         if (pattern.test(title)) {
-            const data = window.search.table[title];
-            result.innerHTML = title;
-            if ("tomap" in data) result.setAttribute("tomap", data.tomap);
-            else result.removeAttribute("tomap");
-            if ("toarticle" in data)
-                result.setAttribute("toarticle", data.toarticle);
-            else result.removeAttribute("toarticle");
-            result.classList.remove("hidden");
-            setAnchors([result]);
-            return;
+            if (hit) {
+                hit = title.length < hit.length ? title : hit;
+            } else {
+                hit = title;
+            }
         }
     }
+
+    if (hit) setResultLink(hit, window.search.table[hit]);
 }
 
 export function getSearchBar() {
