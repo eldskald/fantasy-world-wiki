@@ -73,10 +73,7 @@ describe("search feature", () => {
         expect(result.classList.contains("hidden")).toBe(true);
         expect(bar.classList.contains("h-16")).toBe(false);
 
-        document
-            .getElementById("article-close-link")
-            .querySelector("a")
-            .click();
+        document.getElementById("close-article-link").click();
         await sleep(SLEEP_TIME);
         input.focus();
         type(input, "");

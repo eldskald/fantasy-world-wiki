@@ -5,6 +5,8 @@ export const settings = {
     enableCreditsPage: true,
     labels: {
         closeArticle: "Close",
+        minimizeArticle: "Minimize",
+        maximizeArticle: "Maximize",
         homeLink: "Home",
         articlesIndexLink: "Articles",
         articlesIndex: "Articles Index",
