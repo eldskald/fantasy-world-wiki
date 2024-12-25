@@ -3,6 +3,13 @@ import { setArticleModal } from "../components/article-modal.js";
 
 let current = "";
 
+function getArticleTitle(content) {
+    const start = content.search(/<h1>/g);
+    const end = content.search(/<\/h1>/g);
+    if (start === -1 || end === -1) return "";
+    return content.substring(start + 4, end);
+}
+
 export async function detectArticle() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("article");
@@ -16,12 +23,12 @@ export async function detectArticle() {
 
     if (query === null) {
         current = "";
-        setArticleModal("");
+        setArticleModal("", "");
         return;
     }
 
     current = query;
-    setArticleModal(`<p>${window.settings.labels.loading}</p>`);
+    setArticleModal(`<p>${window.settings.labels.loading}</p>`, "");
     try {
         const res = await fetch(
             `${window.settings.paths.articles}${query}.html`,
@@ -33,13 +40,18 @@ export async function detectArticle() {
                 message: res.statusText,
             };
         }
-        setArticleModal(await res.text());
+        const content = await res.text();
+        const title = getArticleTitle(content);
+        setArticleModal(content, title);
         const inner = document.getElementById("article-container-inner");
         setAnchors(inner.querySelectorAll("a"));
     } catch (err) {
-        setArticleModal(`
-            <h3>${err.status}</h3>
-            <p>${err.message}</p>
-        `);
+        setArticleModal(
+            `
+                <h3>${err.status}</h3>
+                <p>${err.message}</p>
+            `,
+            err.status,
+        );
     }
 }
