@@ -2,6 +2,17 @@ import { setAnchors } from "../components/anchor.js";
 import { setArticleModal } from "../components/article-modal.js";
 
 let current = "";
+let currentHash = "";
+
+function scrollToFragment() {
+    const hash = new URL(window.location.href).hash;
+    if (!hash) return;
+
+    const element = document.getElementById(hash.substring(1));
+    if (!element) return;
+
+    element.scrollIntoView(true);
+}
 
 function getArticleTitle(content) {
     const start = content.search(/<h1>/g);
@@ -13,8 +24,11 @@ function getArticleTitle(content) {
 export async function detectArticle() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("article");
+    const hash = new URL(window.location.href).hash;
 
-    if (query === current) return;
+    if (query === current && hash === currentHash) return;
+
+    currentHash = hash;
 
     if (params.has("menu")) {
         current = "";
@@ -45,6 +59,7 @@ export async function detectArticle() {
         setArticleModal(content, title);
         const inner = document.getElementById("article-container-inner");
         setAnchors(inner.querySelectorAll("a"));
+        scrollToFragment();
     } catch (err) {
         setArticleModal(
             `
