@@ -22,8 +22,10 @@ export function setArticleModal(content, articleTitle) {
 function minimizeArticle() {
     const mid = document.getElementById("article-container-mid");
     const link = document.getElementById("minimize-article-link");
+    const inner = document.getElementById("article-container-inner");
     mid.classList.add("h-8");
     mid.classList.remove("grow");
+    inner.classList.add("opacity-0");
     link.innerHTML = window.settings.labels.maximizeArticle;
     link.onclick = maximizeArticle;
 }
@@ -31,8 +33,10 @@ function minimizeArticle() {
 function maximizeArticle() {
     const mid = document.getElementById("article-container-mid");
     const link = document.getElementById("minimize-article-link");
+    const inner = document.getElementById("article-container-inner");
     mid.classList.remove("h-8");
     mid.classList.add("grow");
+    inner.classList.remove("opacity-0");
     link.innerHTML = window.settings.labels.minimizeArticle;
     link.onclick = minimizeArticle;
 }

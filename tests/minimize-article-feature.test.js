@@ -11,20 +11,24 @@ const SLEEP_TIME = 15;
 
 function isArticleModalMaximized() {
     const container = document.getElementById("article-container-mid");
+    const inner = document.getElementById("article-container-inner");
     const link = document.getElementById("minimize-article-link");
     return (
         !container.classList.contains("h-8") &&
         container.classList.contains("grow") &&
+        !inner.classList.contains("opacity-0") &&
         link.innerHTML === window.settings.labels.minimizeArticle
     );
 }
 
 function isArticleModalMinimized() {
     const container = document.getElementById("article-container-mid");
+    const inner = document.getElementById("article-container-inner");
     const link = document.getElementById("minimize-article-link");
     return (
         container.classList.contains("h-8") &&
         !container.classList.contains("grow") &&
+        inner.classList.contains("opacity-0") &&
         link.innerHTML === window.settings.labels.maximizeArticle
     );
 }
