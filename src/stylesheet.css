@@ -31,6 +31,11 @@
         @apply mb-4 indent-10 leading-normal font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
     }
 
+    ul,
+    ol {
+        @apply ml-10 font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
+    }
+
     a {
         @apply text-primary underline hover:brightness-150 focus:outline-none focus:brightness-150;
     }
