@@ -9,7 +9,7 @@ export class TableOfContents extends HTMLElement {
         tocHeader.innerHTML = window.settings.labels.tableOfContents;
         this.appendChild(tocHeader);
         const list = document.createElement("ul");
-        list.className = "font-sans text-xl";
+        list.className = "font-sans text-xl ml-0";
         this.appendChild(list);
         let id = 0;
         headers.forEach((header) => {
