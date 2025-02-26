@@ -5,7 +5,8 @@ import { changeSearchParam } from "../navigation/change-search-param.js";
 // function scans for anchors and does that. We're using the custom attributes
 // `toarticle`, `tomap` and `tomenu` to move around instead of `href` so we can
 // just point to the name of the article/map and it will modify it without
-// changing the other.
+// changing the other. We also want `toarticle` anchors to have previews on
+// hover.
 export function setAnchors(anchors) {
     anchors.forEach((a) => {
         if (
@@ -53,5 +54,21 @@ export function setAnchors(anchors) {
             document.body.dispatchEvent(new CustomEvent("rerender"));
             return false;
         };
+        if (a.getAttribute("toarticle")) {
+            a.onmouseover = (ev) => {
+                document.body.dispatchEvent(
+                    new CustomEvent("articlepreview", {
+                        detail: {
+                            mouseX: ev.clientX,
+                            mouseY: ev.clientY,
+                            article: a.getAttribute("toarticle"),
+                        },
+                    }),
+                );
+            };
+            a.onmouseout = () => {
+                document.body.dispatchEvent(new CustomEvent("hidepreview"));
+            };
+        }
     });
 }

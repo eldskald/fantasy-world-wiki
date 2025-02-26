@@ -1,5 +1,6 @@
 import { getMenuModal } from "../components/menu.js";
 import { getArticleModal } from "../components/article-modal.js";
+import { getArticlePreview } from "../components/article-preview.js";
 import { getMapContainer } from "../components/map-container.js";
 import { getTopBar } from "../components/top-bar.js";
 import { changeSearchParam } from "../navigation/change-search-param.js";
@@ -26,6 +27,7 @@ export function setupPage() {
     mainContainer.className = "min-h-full relative overflow-hidden";
     contentWrapper.appendChild(mainContainer);
     contentWrapper.appendChild(getMenuModal());
+    contentWrapper.appendChild(getArticlePreview());
     document.body.appendChild(contentWrapper);
     document.body.appendChild(getTopBar());
     mainContainer.appendChild(getMapContainer());
