@@ -31,6 +31,10 @@
         @apply mb-4 leading-normal font-serif text-lg text-justify text-fg-light dark:text-fg-dark;
     }
 
+    figcaption {
+        @apply mb-4 leading-normal font-serif text-lg text-center text-fg-light dark:text-fg-dark;
+    }
+
     p+p,
     .left-float+p,
     .right-float+p {
@@ -102,6 +106,14 @@
 
     .right-float {
         @apply lg:float-right lg:ml-4 lg:mt-0 lg:w-auto lg:max-w-[512px];
+    }
+
+    .left-float-sm {
+        @apply lg:float-left lg:mr-4 lg:mt-0 lg:w-auto lg:max-w-[256px];
+    }
+
+    .right-float-sm {
+        @apply lg:float-right lg:ml-4 lg:mt-0 lg:w-auto lg:max-w-[256px];
     }
 
     .note {
