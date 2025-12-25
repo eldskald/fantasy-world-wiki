@@ -1,10 +1,19 @@
 import { setAnchors } from "../components/anchor.js";
 
-function removeArticleTitle(content) {
-    const start = content.search(/<h1>/g);
-    const end = content.search(/<\/h1>/g);
-    if (start === -1 || end === -1) return content;
-    return content.replace(content.substring(start, end), "");
+function setupPreviewContent(content) {
+    // Find <preview-content> tag and returns its contents
+    let start = content.search(/<preview-content>/g);
+    let end = content.search(/<\/preview-content>/g);
+
+    // If there is no <preview-content> tag, just remove the <h1> tag
+    if (start === -1 || end === -1) {
+        start = content.search(/<h1>/g);
+        end = content.search(/<\/h1>/g);
+        if (start === -1 || end === -1) return content;
+        return content.replace(content.substring(start, end + 5), "");
+    }
+
+    return content.substring(start + 17, end);
 }
 
 export function getArticlePreview() {
@@ -68,7 +77,7 @@ export async function showArticlePreview(x, y, article) {
                 message: res.statusText,
             };
         }
-        preview.innerHTML = removeArticleTitle(await res.text());
+        preview.innerHTML = setupPreviewContent(await res.text());
         setAnchors(preview.querySelectorAll("a"));
     } catch (err) {
         preview.innerHTML = `<h3>${err.status}</h3><p>${err.message}</p>`;
