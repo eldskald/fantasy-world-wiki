@@ -3,6 +3,7 @@ import { detectMap } from "../navigation/maps.js";
 import { detectMenu } from "../navigation/menu.js";
 import { setAnchors } from "../components/anchor.js";
 import { TableOfContents } from "../components/table-of-contents.js";
+import { PreviewContent } from "../components/preview-content.js";
 import { detectTheme } from "../components/theme-switcher.js";
 import {
     showArticlePreview,
@@ -18,6 +19,7 @@ function render() {
 
 export function onLoadRoutine() {
     customElements.define("table-of-contents", TableOfContents);
+    customElements.define("preview-content", PreviewContent);
 
     document.body.addEventListener("rerender", render);
     document.body.addEventListener("articlepreview", (ev) => {

@@ -36,7 +36,8 @@ describe("article previews", () => {
 
         await sleep(SLEEP_TIME);
         expect(preview.innerHTML.trim()).toBe(
-            '<p>content <a toarticle="article2" href="http://localhost/?article=article2">article2</a> more content1</p>'.trim(),
+            "<p>preview 1</p>".trim(),
+            // '<p>content <a toarticle="article2" href="http://localhost/?article=article2">article2</a> more content1</p>'.trim(),
         );
 
         simulateMouseOut(a);
