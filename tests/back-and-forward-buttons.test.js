@@ -32,7 +32,7 @@ describe("back and forward features", () => {
         // Can't use moddedArticles.article1 here because of the additional map
         // link after setAnchors.
         const moddedArticle = `
-        <h1>article1</h1>
+        <h1 id="id1">article1</h1>
         
         <p>content <a toarticle="article2" href="http://localhost/?article=article2&amp;map=map2">article2</a> more content1</p>
         `;

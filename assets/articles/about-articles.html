@@ -25,7 +25,11 @@
     You might have noticed that links use an <code>a</code> tag. It stands for anchor. If you want to link to an
     article, give it a <em>toarticle</em> attribute with the filename of the article you want to link to and it should
     work. Similarly for maps, a <em>tomap</em> attribute with the filename of the map you're trying to link to should
-    work. You can link to both an article and a map too.
+    work. You can link to both an article and a map too. Lastly, you can also put a <em>tofragment</em> attribute to put
+    a fragment on the link, that is, put it with the <em>id</em> of an element on your document to have it scroll to it.
+    Preferably, you use <em>tofragment</em> together with <em>toarticle</em>, where <em>tofragment</em> has the
+    <em>id</em> of an element in the document of the linked article in <em>toarticle</em>. For more information about
+    <em>id</em>'s, see the <a tofragment="about-the-table-of-contents">about the table of contents</a> section.
 </p>
 <p>
     If you haven't found links like this already, <a toarticle="about-articles">here</a> is a link to this same article
