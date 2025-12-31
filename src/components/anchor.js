@@ -3,22 +3,22 @@ import { changeSearchParam } from "../navigation/change-search-param.js";
 // This is to override the default behavior of anchors (<a></a> tags). We want
 // them to not reload the page, just change search params and re-render. This
 // function scans for anchors and does that. We're using the custom attributes
-// `toarticle`, `tomap` and `tomenu` to move around instead of `href` so we can
-// just point to the name of the article/map and it will modify it without
-// changing the other. We also want `toarticle` anchors to have previews on
-// hover.
+// `toarticle`, `tomap`, `tomenu` and `tofragment` to move around instead of
+// `href` so we can just point to the name of the article/map and it will modify
+// it without changing the other. We also want `toarticle` anchors to have
+// previews on hover.
 export function setAnchors(anchors) {
     anchors.forEach((a) => {
         if (
             !a.hasAttribute("toarticle") &&
             !a.hasAttribute("tomap") &&
-            !a.hasAttribute("tomenu")
+            !a.hasAttribute("tomenu") &&
+            !a.hasAttribute("tofragment")
         )
             return;
 
         const newState = {};
         const url = new URL(window.location.href);
-        url.hash = "";
         const menu = a.getAttribute("tomenu");
         if (menu) {
             newState.menu = menu;
@@ -46,6 +46,12 @@ export function setAnchors(anchors) {
                 newState.map = map;
                 url.searchParams.set("map", map);
             }
+        }
+
+        url.hash = "";
+        if (a.hasAttribute("tofragment")) {
+            url.hash = `#${a.getAttribute("tofragment")}`;
+            newState.hash = a.getAttribute("tofragment");
         }
 
         a.setAttribute("href", url.toString());

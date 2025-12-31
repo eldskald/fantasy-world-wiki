@@ -1,9 +1,13 @@
 import { changeSearchParam } from "../../src/navigation/change-search-param.js";
+import { jest } from "@jest/globals";
 import fs from "fs";
 
 export async function initDom(additionalElements = [], searchParams = {}) {
     // Mock window.matchMedia because it doesn't exist on JSDOM.
     window.matchMedia = () => ({ matches: true });
+
+    // Mock scrollIntoView because it doesn't exist on JSDOM
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
 
     // Load index.html and removes the first two and the last lines,
     // leaving only the head and body elements.
